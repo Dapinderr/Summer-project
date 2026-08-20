@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Voter Dashboard | SecureVote</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-check-to-slot"></i>
+
+            <span>SecureVote</span>
+
+        </div>
+
+        <div class="user-mini-profile">
+
+            <div class="avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+
+                <h4 id="sidebarUserName">
+                    Voter
+                </h4>
+
+                <span>
+                    Verified Voter
+                </span>
+
+            </div>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="dashboard.html"
+                class="active"
+            >
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+            <a href="elections.html">
+
+                <i class="fa-solid fa-box-ballot"></i>
+
+                <span>
+                    Elections
+                </span>
+
+            </a>
+
+            <a href="results.html">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                <span>
+                    Results
+                </span>
+
+            </a>
+
+            <a href="history.html">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                <span>
+                    Voting History
+                </span>
+
+            </a>
+
+            <a href="profile.html">
+
+                <i class="fa-solid fa-user"></i>
+
+                <span>
+                    My Profile
+                </span>
+
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                id="logoutBtn"
+                type="button"
+            >
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>
+                    Logout
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    id="menuBtn"
+                    class="menu-btn"
+                    type="button"
+                    aria-label="Toggle navigation"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div>
+
+                    <h2>
+                        Voter Dashboard
+                    </h2>
+
+                    <p>
+                        Secure • Transparent • Trusted
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <button
+                    class="notification-btn"
+                    type="button"
+                    aria-label="Notifications"
+                >
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+                <a
+                    href="profile.html"
+                    class="profile-button"
+                >
+
+                    <div class="profile-avatar">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong id="topUserName">
+                            Voter
+                        </strong>
+
+                        <small>
+                            Voter
+                        </small>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= WELCOME ================= -->
+
+        <section class="welcome-card">
+
+            <div>
+
+                <span class="verified-badge">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Verified Account
+
+                </span>
+
+                <h1>
+
+                    Welcome back,
+
+                    <span id="welcomeUser">
+                        Voter
+                    </span>!
+
+                </h1>
+
+                <p>
+                    Your account is verified and ready to participate
+                    in eligible elections.
+                </p>
+
+            </div>
+
+            <div class="welcome-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATISTICS ================= -->
+
+        <section class="stats-grid">
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="fa-solid fa-box-ballot"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Active Elections
+                    </span>
+
+                    <h3 id="activeElectionCount">
+                        0
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="fa-solid fa-check-double"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Votes Cast
+                    </span>
+
+                    <h3 id="votesCastCount">
+                        0
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Upcoming
+                    </span>
+
+                    <h3 id="upcomingElectionCount">
+                        0
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="fa-solid fa-award"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Completed
+                    </span>
+
+                    <h3 id="completedElectionCount">
+                        0
+                    </h3>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= CONTENT GRID ================= -->
+
+        <section class="content-grid">
+
+            <!-- REAL ACTIVE ELECTIONS -->
+
+            <div class="dashboard-card elections-card">
+
+                <div class="card-title">
+
+                    <div>
+
+                        <h2>
+                            Active Elections
+                        </h2>
+
+                        <p>
+                            Elections currently open for voting
+                        </p>
+
+                    </div>
+
+                    <a href="elections.html">
+
+                        View All
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <!--
+                    dashboard.js inserts real MongoDB
+                    elections inside this container.
+                -->
+
+                <div id="dashboardElectionList">
+
+                    <p>
+                        Loading elections...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACCOUNT STATUS -->
+
+            <div class="dashboard-card account-card">
+
+                <div class="card-title">
+
+                    <div>
+
+                        <h2>
+                            Account Status
+                        </h2>
+
+                        <p>
+                            Your voter verification
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="verification-circle">
+
+                    <div>
+
+                        <strong>
+                            100%
+                        </strong>
+
+                        <span>
+                            Complete
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="verification-list">
+
+                    <div>
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Email Verified
+
+                    </div>
+
+                    <div>
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Account Active
+
+                    </div>
+
+                    <div>
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Voter ID Registered
+
+                    </div>
+
+                    <div>
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Identity Approved
+
+                    </div>
+
+                </div>
+
+                <a
+                    href="profile.html"
+                    class="profile-link"
+                >
+
+                    View Profile
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REAL VOTING ACTIVITY ================= -->
+
+        <section class="dashboard-card activity-card">
+
+            <div class="card-title">
+
+                <div>
+
+                    <h2>
+                        Recent Voting Activity
+                    </h2>
+
+                    <p>
+                        Your latest election participation
+                    </p>
+
+                </div>
+
+                <a href="history.html">
+
+                    Full History
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+            <div class="activity-table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Election
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Receipt
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="recentActivityBody">
+
+                        <tr>
+
+                            <td colspan="4">
+                                Loading voting history...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SECURITY NOTICE ================= -->
+
+        <section class="security-notice">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <div>
+
+                <strong>
+                    Your vote is private.
+                </strong>
+
+                <p>
+                    SecureVote never displays which candidate you voted
+                    for in your voting history.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 SecureVote. Secure • Transparent • Trusted
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

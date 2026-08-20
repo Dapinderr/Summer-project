@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Audit Logs | SecureVote Admin</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="css/admin-audit.css">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar"
+           id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-check-to-slot"></i>
+
+            <div>
+
+                <strong>
+                    SecureVote
+                </strong>
+
+                <span>
+                    Administration
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <span class="nav-label">
+                OVERVIEW
+            </span>
+
+            <a href="admin-dashboard.html">
+
+                <i class="fa-solid fa-chart-pie"></i>
+                Dashboard
+
+            </a>
+
+
+            <span class="nav-label">
+                ELECTION MANAGEMENT
+            </span>
+
+            <a href="admin-elections.html">
+
+                <i class="fa-solid fa-box-ballot"></i>
+                Elections
+
+            </a>
+
+            <a href="admin-candidates.html">
+
+                <i class="fa-solid fa-users"></i>
+                Candidates
+
+            </a>
+
+            <a href="admin-voters.html">
+
+                <i class="fa-solid fa-user-check"></i>
+                Voters
+
+            </a>
+
+
+            <span class="nav-label">
+                MONITORING
+            </span>
+
+            <a href="admin-results.html">
+
+                <i class="fa-solid fa-chart-column"></i>
+                Results
+
+            </a>
+
+            <a href="admin-audit.html"
+               class="active">
+
+                <i class="fa-solid fa-file-shield"></i>
+                Audit Logs
+
+            </a>
+
+            <a href="admin-settings.html">
+
+                <i class="fa-solid fa-gear"></i>
+                Settings
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="logout-btn"
+                    id="logoutBtn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button class="menu-btn"
+                        id="menuBtn">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div>
+
+                    <h2>
+                        Audit Logs
+                    </h2>
+
+                    <p>
+                        Security and administrative activity records
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button class="export-btn"
+                    id="exportBtn">
+
+                <i class="fa-solid fa-download"></i>
+                Export Logs
+
+            </button>
+
+        </header>
+
+
+        <!-- SECURITY BANNER -->
+
+        <section class="security-banner">
+
+            <div class="security-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    TAMPER-EVIDENT AUDIT TRAIL
+                </span>
+
+                <h2>
+                    System Activity Monitoring
+                </h2>
+
+                <p>
+                    Important administrative and security events are
+                    recorded for transparency and post-election review.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- STATS -->
+
+        <section class="stats-grid">
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="fa-solid fa-list"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Events
+                    </span>
+
+                    <strong id="totalEvents">
+                        1,248
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Successful
+                    </span>
+
+                    <strong>
+                        1,192
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Warnings
+                    </span>
+
+                    <strong>
+                        42
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon red">
+
+                    <i class="fa-solid fa-shield"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Security Alerts
+                    </span>
+
+                    <strong>
+                        14
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- AUDIT PANEL -->
+
+        <section class="audit-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Activity History
+                    </h2>
+
+                    <p>
+                        Review system and administrator events
+                    </p>
+
+                </div>
+
+
+                <div class="panel-tools">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="auditSearch"
+                            placeholder="Search logs..."
+                        >
+
+                    </div>
+
+
+                    <select id="auditFilter">
+
+                        <option value="all">
+                            All Events
+                        </option>
+
+                        <option value="success">
+                            Successful
+                        </option>
+
+                        <option value="warning">
+                            Warnings
+                        </option>
+
+                        <option value="security">
+                            Security
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div class="table-wrapper">
+
+                <table class="audit-table">
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            Event
+                        </th>
+
+                        <th>
+                            User
+                        </th>
+
+                        <th>
+                            IP Address
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Date & Time
+                        </th>
+
+                        <th>
+                            Details
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="auditBody">
+
+
+                    <!-- LOG 1 -->
+
+                    <tr class="audit-row"
+                        data-type="success">
+
+                        <td>
+
+                            <div class="event-info">
+
+                                <div class="event-icon success">
+
+                                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Admin Login
+                                    </strong>
+
+                                    <span>
+                                        Authentication
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            admin@securevote.com
+                        </td>
+
+                        <td>
+                            192.168.1.21
+                        </td>
+
+                        <td>
+
+                            <span class="status success-status">
+
+                                <i class="fa-solid fa-check"></i>
+                                Success
+
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Jul 23, 2026 • 02:34 PM
+                        </td>
+
+                        <td>
+
+                            <button class="details-btn"
+                                    data-details="Administrator successfully authenticated using two-factor verification.">
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- LOG 2 -->
+
+                    <tr class="audit-row"
+                        data-type="success">
+
+                        <td>
+
+                            <div class="event-info">
+
+                                <div class="event-icon success">
+
+                                    <i class="fa-solid fa-user-check"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Voter Verified
+                                    </strong>
+
+                                    <span>
+                                        Voter Management
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            admin@securevote.com
+                        </td>
+
+                        <td>
+                            192.168.1.21
+                        </td>
+
+                        <td>
+
+                            <span class="status success-status">
+                                Success
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Jul 23, 2026 • 02:18 PM
+                        </td>
+
+                        <td>
+
+                            <button class="details-btn"
+                                    data-details="Voter SV-8422 identity documents were reviewed and approved.">
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- LOG 3 -->
+
+                    <tr class="audit-row"
+                        data-type="warning">
+
+                        <td>
+
+                            <div class="event-info">
+
+                                <div class="event-icon warning">
+
+                                    <i class="fa-solid fa-key"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Failed Login Attempt
+                                    </strong>
+
+                                    <span>
+                                        Authentication
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            voter@example.com
+                        </td>
+
+                        <td>
+                            103.45.87.22
+                        </td>
+
+                        <td>
+
+                            <span class="status warning-status">
+                                Warning
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Jul 23, 2026 • 01:56 PM
+                        </td>
+
+                        <td>
+
+                            <button class="details-btn"
+                                    data-details="Authentication failed because an incorrect password was submitted.">
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- LOG 4 -->
+
+                    <tr class="audit-row"
+                        data-type="security">
+
+                        <td>
+
+                            <div class="event-info">
+
+                                <div class="event-icon security">
+
+                                    <i class="fa-solid fa-shield-halved"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Duplicate Vote Blocked
+                                    </strong>
+
+                                    <span>
+                                        Voting Security
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            SV-7362
+                        </td>
+
+                        <td>
+                            117.204.22.18
+                        </td>
+
+                        <td>
+
+                            <span class="status security-status">
+                                Security
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Jul 23, 2026 • 01:41 PM
+                        </td>
+
+                        <td>
+
+                            <button class="details-btn"
+                                    data-details="A second ballot submission was rejected because the voter had already voted in this election.">
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- LOG 5 -->
+
+                    <tr class="audit-row"
+                        data-type="success">
+
+                        <td>
+
+                            <div class="event-info">
+
+                                <div class="event-icon success">
+
+                                    <i class="fa-solid fa-box-ballot"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Election Updated
+                                    </strong>
+
+                                    <span>
+                                        Election Management
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            admin@securevote.com
+                        </td>
+
+                        <td>
+                            192.168.1.21
+                        </td>
+
+                        <td>
+
+                            <span class="status success-status">
+                                Success
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Jul 23, 2026 • 12:58 PM
+                        </td>
+
+                        <td>
+
+                            <button class="details-btn"
+                                    data-details="Student Council Election 2026 configuration was updated.">
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="empty-state"
+                 id="emptyState">
+
+                <i class="fa-solid fa-file-circle-xmark"></i>
+
+                <h3>
+                    No audit events found
+                </h3>
+
+                <p>
+                    Try another search or filter.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- DETAILS MODAL -->
+
+<div class="modal"
+     id="detailsModal">
+
+    <div class="modal-overlay"
+         id="detailsOverlay"></div>
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                id="detailsClose">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="modal-icon">
+
+            <i class="fa-solid fa-file-shield"></i>
+
+        </div>
+
+        <span class="modal-label">
+            AUDIT EVENT
+        </span>
+
+        <h2 id="detailTitle">
+            Event Details
+        </h2>
+
+        <p id="detailText">
+            Event information.
+        </p>
+
+        <div class="hash-box">
+
+            <span>
+                Integrity Hash
+            </span>
+
+            <code id="eventHash">
+                SHA256: —
+            </code>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast"
+     id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastText">
+        Export complete.
+    </span>
+
+</div>
+
+
+<div class="mobile-overlay"
+     id="mobileOverlay"></div>
+
+<script src="js/admin-audit.js"></script>
+
+</body>
+
+</html>

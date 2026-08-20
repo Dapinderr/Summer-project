@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Election Results | SecureVote</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/results.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-check-to-slot"></i>
+            <span>SecureVote</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+
+            <a href="elections.html">
+                <i class="fa-solid fa-box-ballot"></i>
+                Elections
+            </a>
+
+            <a href="results.html" class="active">
+                <i class="fa-solid fa-chart-column"></i>
+                Results
+            </a>
+
+            <a href="history.html">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                Voting History
+            </a>
+
+            <a href="profile.html">
+                <i class="fa-solid fa-user"></i>
+                My Profile
+            </a>
+
+        </nav>
+
+        <button class="logout-btn" id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+
+        </button>
+
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="top-left">
+
+                <button class="menu-btn"
+                        id="menuBtn"
+                        aria-label="Toggle navigation">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div>
+
+                    <h2>Election Results</h2>
+
+                    <p>
+                        View verified election outcomes and statistics
+                    </p>
+
+                </div>
+
+            </div>
+
+            <a href="profile.html" class="profile">
+
+                <div class="avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <span id="userName">Voter</span>
+
+            </a>
+
+        </header>
+
+        <!-- ================= HERO ================= -->
+
+        <section class="results-hero">
+
+            <div>
+
+                <span class="verified-badge">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Verified Results
+
+                </span>
+
+                <h1>Transparent Election Results</h1>
+
+                <p>
+                    Explore published election results, voter turnout
+                    and candidate performance.
+                </p>
+
+            </div>
+
+            <div class="hero-icon">
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+            </div>
+
+        </section>
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats-grid">
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="fa-solid fa-box-ballot"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Total Elections</span>
+
+                    <strong>9</strong>
+
+                </div>
+
+            </article>
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Completed</span>
+
+                    <strong>7</strong>
+
+                </div>
+
+            </article>
+
+            <article class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Total Votes</span>
+
+                    <strong>4,862</strong>
+
+                </div>
+
+            </article>
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="fa-solid fa-percent"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Average Turnout</span>
+
+                    <strong>78%</strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- ================= FILTER ================= -->
+
+        <section class="result-tools">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="resultSearch"
+                    placeholder="Search election results..."
+                >
+
+            </div>
+
+            <select id="resultFilter">
+
+                <option value="all">
+                    All Results
+                </option>
+
+                <option value="completed">
+                    Completed
+                </option>
+
+                <option value="live">
+                    Live
+                </option>
+
+            </select>
+
+        </section>
+
+        <!-- ================= FEATURED RESULT ================= -->
+
+        <section class="featured-result result-item"
+                 data-status="completed">
+
+            <div class="featured-header">
+
+                <div>
+
+                    <div class="result-status">
+
+                        <span class="completed-badge">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            Final Result
+
+                        </span>
+
+                        <span class="verified-result">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            Verified
+
+                        </span>
+
+                    </div>
+
+                    <h2>Library Committee Election 2026</h2>
+
+                    <p>
+                        Final certified results published July 10, 2026
+                    </p>
+
+                </div>
+
+                <div class="turnout">
+
+                    <span>Voter Turnout</span>
+
+                    <strong>84%</strong>
+
+                </div>
+
+            </div>
+
+            <!-- WINNER -->
+
+            <div class="winner-card">
+
+                <div class="winner-crown">
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                </div>
+
+                <div class="winner-avatar">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <div class="winner-info">
+
+                    <span>Winner</span>
+
+                    <h3>Priya Mehta</h3>
+
+                    <p>Student Academic Alliance</p>
+
+                </div>
+
+                <div class="winner-votes">
+
+                    <strong>512</strong>
+
+                    <span>Votes</span>
+
+                </div>
+
+            </div>
+
+            <!-- RESULTS -->
+
+            <div class="candidate-results">
+
+                <div class="candidate-result winner">
+
+                    <div class="result-name">
+
+                        <strong>Priya Mehta</strong>
+
+                        <span>512 votes</span>
+
+                    </div>
+
+                    <div class="result-bar">
+
+                        <div class="bar-fill"
+                             data-width="46"></div>
+
+                    </div>
+
+                    <strong class="percentage">
+                        46%
+                    </strong>
+
+                </div>
+
+                <div class="candidate-result">
+
+                    <div class="result-name">
+
+                        <strong>Rahul Khanna</strong>
+
+                        <span>361 votes</span>
+
+                    </div>
+
+                    <div class="result-bar">
+
+                        <div class="bar-fill"
+                             data-width="32"></div>
+
+                    </div>
+
+                    <strong class="percentage">
+                        32%
+                    </strong>
+
+                </div>
+
+                <div class="candidate-result">
+
+                    <div class="result-name">
+
+                        <strong>Neha Gupta</strong>
+
+                        <span>245 votes</span>
+
+                    </div>
+
+                    <div class="result-bar">
+
+                        <div class="bar-fill"
+                             data-width="22"></div>
+
+                    </div>
+
+                    <strong class="percentage">
+                        22%
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div class="result-summary">
+
+                <div>
+
+                    <span>Total Votes</span>
+
+                    <strong>1,118</strong>
+
+                </div>
+
+                <div>
+
+                    <span>Eligible Voters</span>
+
+                    <strong>1,331</strong>
+
+                </div>
+
+                <div>
+
+                    <span>Turnout</span>
+
+                    <strong>84%</strong>
+
+                </div>
+
+                <div>
+
+                    <span>Result Status</span>
+
+                    <strong class="verified-text">
+                        Certified
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= OTHER RESULTS ================= -->
+
+        <div class="section-title">
+
+            <div>
+
+                <h2>More Election Results</h2>
+
+                <p>
+                    Recently completed and ongoing elections
+                </p>
+
+            </div>
+
+        </div>
+
+        <section class="result-grid" id="resultGrid">
+
+            <!-- RESULT 1 -->
+
+            <article class="result-card result-item"
+                     data-status="completed">
+
+                <div class="card-top">
+
+                    <div class="result-icon">
+
+                        <i class="fa-solid fa-leaf"></i>
+
+                    </div>
+
+                    <span class="completed-badge">
+                        Completed
+                    </span>
+
+                </div>
+
+                <h3>Environment Club Election</h3>
+
+                <p class="result-date">
+                    Completed June 28, 2026
+                </p>
+
+                <div class="small-winner">
+
+                    <div>
+
+                        <span>Winner</span>
+
+                        <strong>Aditya Rao</strong>
+
+                    </div>
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                </div>
+
+                <div class="mini-stats">
+
+                    <span>
+                        <i class="fa-solid fa-check-to-slot"></i>
+                        764 Votes
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-users"></i>
+                        81% Turnout
+                    </span>
+
+                </div>
+
+                <button class="details-btn"
+                        data-election="Environment Club Election"
+                        data-winner="Aditya Rao"
+                        data-votes="764"
+                        data-turnout="81%">
+
+                    View Full Result
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </article>
+
+            <!-- RESULT 2 -->
+
+            <article class="result-card result-item"
+                     data-status="completed">
+
+                <div class="card-top">
+
+                    <div class="result-icon">
+
+                        <i class="fa-solid fa-medal"></i>
+
+                    </div>
+
+                    <span class="completed-badge">
+                        Completed
+                    </span>
+
+                </div>
+
+                <h3>Sports Committee Election</h3>
+
+                <p class="result-date">
+                    Completed June 15, 2026
+                </p>
+
+                <div class="small-winner">
+
+                    <div>
+
+                        <span>Winner</span>
+
+                        <strong>Karan Singh</strong>
+
+                    </div>
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                </div>
+
+                <div class="mini-stats">
+
+                    <span>
+                        <i class="fa-solid fa-check-to-slot"></i>
+                        936 Votes
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-users"></i>
+                        79% Turnout
+                    </span>
+
+                </div>
+
+                <button class="details-btn"
+                        data-election="Sports Committee Election"
+                        data-winner="Karan Singh"
+                        data-votes="936"
+                        data-turnout="79%">
+
+                    View Full Result
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </article>
+
+            <!-- LIVE RESULT -->
+
+            <article class="result-card result-item"
+                     data-status="live">
+
+                <div class="card-top">
+
+                    <div class="result-icon live-icon">
+
+                        <i class="fa-solid fa-laptop-code"></i>
+
+                    </div>
+
+                    <span class="live-badge">
+
+                        <i class="fa-solid fa-circle"></i>
+
+                        Live
+
+                    </span>
+
+                </div>
+
+                <h3>Computer Science Representative</h3>
+
+                <p class="result-date">
+                    Voting currently in progress
+                </p>
+
+                <div class="live-message">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <div>
+
+                        <strong>Results Hidden</strong>
+
+                        <span>
+                            Final results will be published after voting closes.
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <a href="elections.html"
+                   class="election-btn">
+
+                    View Election
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </article>
+
+        </section>
+
+        <!-- EMPTY STATE -->
+
+        <div class="empty-state"
+             id="emptyState">
+
+            <i class="fa-solid fa-chart-column"></i>
+
+            <h3>No results found</h3>
+
+            <p>
+                Try changing your search or filter.
+            </p>
+
+        </div>
+
+        <!-- ================= TRANSPARENCY ================= -->
+
+        <section class="transparency-note">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <div>
+
+                <strong>
+                    Result integrity and transparency
+                </strong>
+
+                <p>
+                    Published results are displayed only after the
+                    election's configured result-release rules are met.
+                    Production results must be computed and verified
+                    by the secure backend rather than browser data.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- ================= RESULT MODAL ================= -->
+
+<div class="modal" id="resultModal">
+
+    <div class="modal-overlay"
+         id="modalOverlay"></div>
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                id="modalClose">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="modal-icon">
+
+            <i class="fa-solid fa-trophy"></i>
+
+        </div>
+
+        <span>Certified Result</span>
+
+        <h2 id="modalElection">
+            Election
+        </h2>
+
+        <div class="modal-result">
+
+            <div>
+
+                <span>Winner</span>
+
+                <strong id="modalWinner">
+                    -
+                </strong>
+
+            </div>
+
+            <div>
+
+                <span>Total Votes</span>
+
+                <strong id="modalVotes">
+                    -
+                </strong>
+
+            </div>
+
+            <div>
+
+                <span>Turnout</span>
+
+                <strong id="modalTurnout">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+        <button class="modal-done"
+                id="modalDone">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/results.js"></script>
+
+</body>
+</html>

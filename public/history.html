@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Voting History | SecureVote</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/history.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-check-to-slot"></i>
+
+            <span>SecureVote</span>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="elections.html">
+
+                <i class="fa-solid fa-box-ballot"></i>
+
+                Elections
+
+            </a>
+
+            <a href="results.html">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Results
+
+            </a>
+
+            <a href="history.html" class="active">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                Voting History
+
+            </a>
+
+            <a href="profile.html">
+
+                <i class="fa-solid fa-user"></i>
+
+                My Profile
+
+            </a>
+
+        </nav>
+
+        <button class="logout-btn" id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="top-left">
+
+                <button class="menu-btn"
+                        id="menuBtn"
+                        aria-label="Toggle navigation">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div>
+
+                    <h2>Voting History</h2>
+
+                    <p>
+                        View your election participation records
+                    </p>
+
+                </div>
+
+            </div>
+
+            <a href="profile.html" class="profile">
+
+                <div class="avatar">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <span id="userName">
+                    Voter
+                </span>
+
+            </a>
+
+        </header>
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="history-hero">
+
+            <div>
+
+                <span class="privacy-badge">
+
+                    <i class="fa-solid fa-user-secret"></i>
+
+                    Privacy Protected
+
+                </span>
+
+                <h1>Your Voting Activity</h1>
+
+                <p>
+                    Review elections in which you participated while
+                    keeping your ballot selections private.
+                </p>
+
+            </div>
+
+            <div class="hero-icon">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PRIVACY NOTICE ================= -->
+
+        <section class="privacy-notice">
+
+            <div class="privacy-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Your candidate choices are not shown here</h3>
+
+                <p>
+                    Voting history records participation only. Your
+                    candidate selection remains separate from your
+                    identity to preserve ballot secrecy.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="history-stats">
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="fa-solid fa-check-to-slot"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Elections Participated</span>
+
+                    <strong id="totalParticipated">
+                        4
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Votes Recorded</span>
+
+                    <strong id="votesRecorded">
+                        4
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Verified Records</span>
+
+                    <strong id="verifiedRecords">
+                        4
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= TOOLS ================= -->
+
+        <section class="history-tools">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="historySearch"
+                    placeholder="Search voting history..."
+                >
+
+            </div>
+
+            <select id="historyFilter">
+
+                <option value="all">
+                    All Records
+                </option>
+
+                <option value="recorded">
+                    Vote Recorded
+                </option>
+
+                <option value="completed">
+                    Election Completed
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <!-- ================= HISTORY LIST ================= -->
+
+        <section class="history-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>Participation Records</h2>
+
+                    <p>
+                        Secure audit records of your election activity
+                    </p>
+
+                </div>
+
+                <span class="record-count"
+                      id="recordCount">
+
+                    4 Records
+
+                </span>
+
+            </div>
+
+
+            <div class="history-list"
+                 id="historyList">
+
+
+                <!-- ================= RECORD 1 ================= -->
+
+                <article class="history-card"
+                         data-status="recorded">
+
+                    <div class="timeline">
+
+                        <div class="timeline-icon recorded">
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+                        <div class="timeline-line"></div>
+
+                    </div>
+
+
+                    <div class="history-content">
+
+                        <div class="history-header">
+
+                            <div>
+
+                                <span class="status-badge recorded">
+
+                                    <i class="fa-solid fa-circle-check"></i>
+
+                                    Vote Recorded
+
+                                </span>
+
+                                <h3>
+                                    Student Council Election 2026
+                                </h3>
+
+                                <p>
+                                    Student representative election
+                                </p>
+
+                            </div>
+
+
+                            <div class="history-date">
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                July 23, 2026
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="history-details">
+
+                            <div>
+
+                                <span>Participation</span>
+
+                                <strong>
+                                    Confirmed
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>Ballot Status</span>
+
+                                <strong class="secure-text">
+
+                                    <i class="fa-solid fa-lock"></i>
+
+                                    Secured
+
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>Receipt</span>
+
+                                <strong id="latestReceipt">
+                                    SV-XXXXXXXX
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="history-actions">
+
+                            <a href="results.html"
+                               class="result-btn">
+
+                                <i class="fa-solid fa-chart-column"></i>
+
+                                View Results
+
+                            </a>
+
+                            <button class="receipt-btn"
+                                    data-election="Student Council Election 2026"
+                                    data-date="July 23, 2026"
+                                    data-receipt="SV-XXXXXXXX">
+
+                                <i class="fa-solid fa-file-shield"></i>
+
+                                View Receipt
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================= RECORD 2 ================= -->
+
+                <article class="history-card"
+                         data-status="completed">
+
+                    <div class="timeline">
+
+                        <div class="timeline-icon completed">
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+                        <div class="timeline-line"></div>
+
+                    </div>
+
+
+                    <div class="history-content">
+
+                        <div class="history-header">
+
+                            <div>
+
+                                <span class="status-badge completed">
+
+                                    <i class="fa-solid fa-flag-checkered"></i>
+
+                                    Election Completed
+
+                                </span>
+
+                                <h3>
+                                    Library Committee Election 2026
+                                </h3>
+
+                                <p>
+                                    Library student committee election
+                                </p>
+
+                            </div>
+
+
+                            <div class="history-date">
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                July 8, 2026
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="history-details">
+
+                            <div>
+
+                                <span>Participation</span>
+
+                                <strong>
+                                    Confirmed
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>Result</span>
+
+                                <strong class="published-text">
+                                    Published
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>Receipt</span>
+
+                                <strong>
+                                    SV-LIB-82A4D
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="history-actions">
+
+                            <a href="results.html"
+                               class="result-btn">
+
+                                <i class="fa-solid fa-chart-column"></i>
+
+                                View Results
+
+                            </a>
+
+                            <button class="receipt-btn"
+                                    data-election="Library Committee Election 2026"
+                                    data-date="July 8, 2026"
+                                    data-receipt="SV-LIB-82A4D">
+
+                                <i class="fa-solid fa-file-shield"></i>
+
+                                View Receipt
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================= RECORD 3 ================= -->
+
+                <article class="history-card"
+                         data-status="completed">
+
+                    <div class="timeline">
+
+                        <div class="timeline-icon completed">
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+                        <div class="timeline-line"></div>
+
+                    </div>
+
+
+                    <div class="history-content">
+
+                        <div class="history-header">
+
+                            <div>
+
+                                <span class="status-badge completed">
+
+                                    <i class="fa-solid fa-flag-checkered"></i>
+
+                                    Election Completed
+
+                                </span>
+
+                                <h3>
+                                    Environment Club Election
+                                </h3>
+
+                                <p>
+                                    Campus environmental committee
+                                </p>
+
+                            </div>
+
+
+                            <div class="history-date">
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                June 27, 2026
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="history-details">
+
+                            <div>
+
+                                <span>Participation</span>
+
+                                <strong>
+                                    Confirmed
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>Result</span>
+
+                                <strong class="published-text">
+                                    Published
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>Receipt</span>
+
+                                <strong>
+                                    SV-ENV-63C91
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="history-actions">
+
+                            <a href="results.html"
+                               class="result-btn">
+
+                                <i class="fa-solid fa-chart-column"></i>
+
+                                View Results
+
+                            </a>
+
+                            <button class="receipt-btn"
+                                    data-election="Environment Club Election"
+                                    data-date="June 27, 2026"
+                                    data-receipt="SV-ENV-63C91">
+
+                                <i class="fa-solid fa-file-shield"></i>
+
+                                View Receipt
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================= RECORD 4 ================= -->
+
+                <article class="history-card last-card"
+                         data-status="completed">
+
+                    <div class="timeline">
+
+                        <div class="timeline-icon completed">
+
+                            <i class="fa-solid fa-check"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="history-content">
+
+                        <div class="history-header">
+
+                            <div>
+
+                                <span class="status-badge completed">
+
+                                    <i class="fa-solid fa-flag-checkered"></i>
+
+                                    Election Completed
+
+                                </span>
+
+                                <h3>
+                                    Sports Committee Election
+                                </h3>
+
+                                <p>
+                                    University sports committee election
+                                </p>
+
+                            </div>
+
+
+                            <div class="history-date">
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                June 14, 2026
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="history-details">
+
+                            <div>
+
+                                <span>Participation</span>
+
+                                <strong>
+                                    Confirmed
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>Result</span>
+
+                                <strong class="published-text">
+                                    Published
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>Receipt</span>
+
+                                <strong>
+                                    SV-SPT-19B72
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="history-actions">
+
+                            <a href="results.html"
+                               class="result-btn">
+
+                                <i class="fa-solid fa-chart-column"></i>
+
+                                View Results
+
+                            </a>
+
+                            <button class="receipt-btn"
+                                    data-election="Sports Committee Election"
+                                    data-date="June 14, 2026"
+                                    data-receipt="SV-SPT-19B72">
+
+                                <i class="fa-solid fa-file-shield"></i>
+
+                                View Receipt
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div class="empty-state"
+                 id="emptyState">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                <h3>No voting records found</h3>
+
+                <p>
+                    Your election participation history will appear here.
+                </p>
+
+                <a href="elections.html">
+
+                    Explore Elections
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= AUDIT NOTE ================= -->
+
+        <section class="audit-note">
+
+            <i class="fa-solid fa-file-shield"></i>
+
+            <div>
+
+                <strong>
+                    Secure audit trail
+                </strong>
+
+                <p>
+                    Participation records help verify that your vote was
+                    accepted without revealing which candidate you selected.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= RECEIPT MODAL ================= -->
+
+<div class="modal"
+     id="receiptModal">
+
+    <div class="modal-overlay"
+         id="modalOverlay"></div>
+
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                id="modalClose"
+                aria-label="Close">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <div class="modal-icon">
+
+            <i class="fa-solid fa-file-shield"></i>
+
+        </div>
+
+
+        <span class="modal-label">
+            Participation Receipt
+        </span>
+
+
+        <h2 id="modalElection">
+            Election
+        </h2>
+
+
+        <div class="receipt-information">
+
+            <div>
+
+                <span>Status</span>
+
+                <strong class="verified">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Verified
+
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>Participation Date</span>
+
+                <strong id="modalDate">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>Receipt ID</span>
+
+                <div class="receipt-code">
+
+                    <strong id="modalReceipt">
+                        -
+                    </strong>
+
+                    <button id="copyReceiptBtn"
+                            title="Copy receipt">
+
+                        <i class="fa-regular fa-copy"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="receipt-privacy">
+
+            <i class="fa-solid fa-user-secret"></i>
+
+            This receipt confirms participation only and does not
+            reveal your candidate selection.
+
+        </div>
+
+
+        <button class="modal-done"
+                id="modalDone">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast"
+     id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    Receipt copied
+
+</div>
+
+
+<script src="js/history.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | SecureVote</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-check-to-slot"></i>
+            <span>SecureVote</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+
+            <a href="elections.html">
+                <i class="fa-solid fa-box-ballot"></i>
+                Elections
+            </a>
+
+            <a href="results.html">
+                <i class="fa-solid fa-chart-column"></i>
+                Results
+            </a>
+
+            <a href="history.html">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                Voting History
+            </a>
+
+            <a href="profile.html" class="active">
+                <i class="fa-solid fa-user"></i>
+                My Profile
+            </a>
+
+        </nav>
+
+        <button class="logout-btn" id="logoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="top-left">
+
+                <button class="menu-btn"
+                        id="menuBtn"
+                        aria-label="Toggle navigation">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div>
+                    <h2>My Profile</h2>
+                    <p>Manage your voter account and security</p>
+                </div>
+
+            </div>
+
+            <div class="top-profile">
+
+                <div class="small-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <span id="topUserName">Voter</span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= PROFILE HERO ================= -->
+
+        <section class="profile-hero">
+
+            <div class="large-avatar">
+
+                <span id="profileInitials">
+                    SV
+                </span>
+
+                <button class="camera-btn"
+                        id="cameraBtn"
+                        title="Change profile photo">
+
+                    <i class="fa-solid fa-camera"></i>
+
+                </button>
+
+            </div>
+
+            <div class="profile-main-info">
+
+                <div class="name-row">
+
+                    <h1 id="displayName">
+                        SecureVote User
+                    </h1>
+
+                    <span class="verified-badge">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Verified Voter
+
+                    </span>
+
+                </div>
+
+                <p id="displayEmail">
+                    voter@example.com
+                </p>
+
+                <div class="profile-tags">
+
+                    <span>
+                        <i class="fa-solid fa-id-card"></i>
+                        Identity Verified
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Account Protected
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-user"></i>
+                        Voter
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="profile-stats">
+
+            <article>
+
+                <i class="fa-solid fa-check-to-slot"></i>
+
+                <div>
+                    <span>Elections Participated</span>
+                    <strong id="electionCount">4</strong>
+                </div>
+
+            </article>
+
+            <article>
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <div>
+                    <span>Account Status</span>
+                    <strong class="green-text">Verified</strong>
+                </div>
+
+            </article>
+
+            <article>
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                <div>
+                    <span>Member Since</span>
+                    <strong id="memberSince">2026</strong>
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= CONTENT GRID ================= -->
+
+        <div class="profile-grid">
+
+            <!-- ================= PERSONAL INFORMATION ================= -->
+
+            <section class="profile-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            <i class="fa-solid fa-user"></i>
+                            Personal Information
+                        </h2>
+
+                        <p>
+                            Manage your basic voter information
+                        </p>
+
+                    </div>
+
+                    <button class="edit-btn"
+                            id="editProfileBtn">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                        Edit
+
+                    </button>
+
+                </div>
+
+
+                <form id="profileForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="fullName">
+                                Full Name
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-user"></i>
+
+                                <input
+                                    type="text"
+                                    id="fullName"
+                                    value="SecureVote User"
+                                    disabled
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-envelope"></i>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value="voter@example.com"
+                                    disabled
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Mobile Number
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    value="+91 98765 43210"
+                                    disabled
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="dob">
+                                Date of Birth
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-calendar"></i>
+
+                                <input
+                                    type="date"
+                                    id="dob"
+                                    value="2005-01-01"
+                                    disabled
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions"
+                         id="formActions">
+
+                        <button type="button"
+                                class="cancel-btn"
+                                id="cancelEditBtn">
+
+                            Cancel
+
+                        </button>
+
+                        <button type="submit"
+                                class="save-btn">
+
+                            <i class="fa-solid fa-floppy-disk"></i>
+
+                            Save Changes
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- ================= VOTER ID ================= -->
+
+            <section class="profile-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            <i class="fa-solid fa-id-card"></i>
+                            Voter Identity
+                        </h2>
+
+                        <p>
+                            Identity verification information
+                        </p>
+
+                    </div>
+
+                    <span class="status verified">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Verified
+
+                    </span>
+
+                </div>
+
+
+                <div class="identity-card">
+
+                    <div class="identity-logo">
+
+                        <i class="fa-solid fa-fingerprint"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>SecureVote Voter ID</span>
+
+                        <strong id="voterId">
+                            SV-VOTER-2026-001
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="verification-list">
+
+                    <div>
+
+                        <div class="verification-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+
+                        <div>
+                            <strong>Email Verification</strong>
+                            <span>Email address verified</span>
+                        </div>
+
+                        <i class="fa-solid fa-circle-check check"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="verification-icon">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+
+                        <div>
+                            <strong>Mobile Verification</strong>
+                            <span>Phone number verified with OTP</span>
+                        </div>
+
+                        <i class="fa-solid fa-circle-check check"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="verification-icon">
+                            <i class="fa-solid fa-address-card"></i>
+                        </div>
+
+                        <div>
+                            <strong>Identity Document</strong>
+                            <span>Government ID approved</span>
+                        </div>
+
+                        <i class="fa-solid fa-circle-check check"></i>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= SECURITY ================= -->
+
+            <section class="profile-card security-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            <i class="fa-solid fa-lock"></i>
+                            Account Security
+                        </h2>
+
+                        <p>
+                            Protect your SecureVote account
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="security-option">
+
+                    <div class="security-info">
+
+                        <div class="security-icon">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+
+                        <div>
+                            <strong>Password</strong>
+                            <span>
+                                Update your account password
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <button id="changePasswordBtn">
+                        Change
+                    </button>
+
+                </div>
+
+
+                <div class="security-option">
+
+                    <div class="security-info">
+
+                        <div class="security-icon">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>Two-Factor Authentication</strong>
+
+                            <span id="twoFactorText">
+                                Extra protection for your account
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="twoFactorToggle"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="security-option">
+
+                    <div class="security-info">
+
+                        <div class="security-icon">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>Login Activity</strong>
+
+                            <span>
+                                Review recent account sessions
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <button id="activityBtn">
+                        View
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= ACCOUNT ================= -->
+
+            <section class="profile-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            <i class="fa-solid fa-gear"></i>
+                            Account Preferences
+                        </h2>
+
+                        <p>
+                            Manage notifications and preferences
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="preference-option">
+
+                    <div>
+
+                        <strong>Email Notifications</strong>
+
+                        <span>
+                            Receive election announcements
+                        </span>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="emailNotifications"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="preference-option">
+
+                    <div>
+
+                        <strong>Result Notifications</strong>
+
+                        <span>
+                            Notify when election results are published
+                        </span>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="resultNotifications"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="preference-option">
+
+                    <div>
+
+                        <strong>Election Reminders</strong>
+
+                        <span>
+                            Remind before an election closes
+                        </span>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="electionReminders"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ================= PRIVACY ================= -->
+
+        <section class="privacy-banner">
+
+            <i class="fa-solid fa-user-shield"></i>
+
+            <div>
+
+                <strong>Your privacy is protected</strong>
+
+                <p>
+                    Your account information is used for voter
+                    verification. Ballot selections must remain
+                    separated from voter identity in the production
+                    voting system.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= PASSWORD MODAL ================= -->
+
+<div class="modal" id="passwordModal">
+
+    <div class="modal-overlay"
+         id="passwordOverlay"></div>
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                id="passwordClose">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="modal-icon">
+
+            <i class="fa-solid fa-key"></i>
+
+        </div>
+
+        <h2>Change Password</h2>
+
+        <p>
+            Choose a strong password for your account.
+        </p>
+
+        <form id="passwordForm">
+
+            <div class="modal-form-group">
+
+                <label>Current Password</label>
+
+                <input
+                    type="password"
+                    id="currentPassword"
+                    required
+                >
+
+            </div>
+
+            <div class="modal-form-group">
+
+                <label>New Password</label>
+
+                <input
+                    type="password"
+                    id="newPassword"
+                    minlength="8"
+                    required
+                >
+
+            </div>
+
+            <div class="modal-form-group">
+
+                <label>Confirm New Password</label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    minlength="8"
+                    required
+                >
+
+            </div>
+
+            <button type="submit"
+                    class="modal-primary">
+
+                Update Password
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= LOGIN ACTIVITY MODAL ================= -->
+
+<div class="modal" id="activityModal">
+
+    <div class="modal-overlay"
+         id="activityOverlay"></div>
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                id="activityClose">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="modal-icon">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+        </div>
+
+        <h2>Recent Login Activity</h2>
+
+        <p>
+            Recent sessions associated with your account.
+        </p>
+
+        <div class="activity-list">
+
+            <div class="activity-item">
+
+                <i class="fa-solid fa-desktop"></i>
+
+                <div>
+
+                    <strong>Current Session</strong>
+
+                    <span>
+                        Windows • Web Browser
+                    </span>
+
+                </div>
+
+                <span class="current-session">
+                    Active
+                </span>
+
+            </div>
+
+
+            <div class="activity-item">
+
+                <i class="fa-solid fa-mobile-screen"></i>
+
+                <div>
+
+                    <strong>Mobile Session</strong>
+
+                    <span>
+                        Android • Previous login
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="modal-primary"
+                id="activityDone">
+
+            Done
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastText">
+        Profile updated successfully
+    </span>
+
+</div>
+
+
+<script src="js/profile.js"></script>
+
+</body>
+</html>

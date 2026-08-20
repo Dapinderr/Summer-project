@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Voter Management | SecureVote Admin</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="css/admin-voters.css">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar"
+           id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-check-to-slot"></i>
+
+            <div>
+                <strong>SecureVote</strong>
+                <span>Administration</span>
+            </div>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <span class="nav-label">
+                OVERVIEW
+            </span>
+
+            <a href="admin-dashboard.html">
+                <i class="fa-solid fa-chart-pie"></i>
+                Dashboard
+            </a>
+
+            <span class="nav-label">
+                ELECTION MANAGEMENT
+            </span>
+
+            <a href="admin-elections.html">
+                <i class="fa-solid fa-box-ballot"></i>
+                Elections
+            </a>
+
+            <a href="admin-candidates.html">
+                <i class="fa-solid fa-users"></i>
+                Candidates
+            </a>
+
+            <a href="admin-voters.html"
+               class="active">
+
+                <i class="fa-solid fa-user-check"></i>
+                Voters
+
+            </a>
+
+            <span class="nav-label">
+                MONITORING
+            </span>
+
+            <a href="admin-results.html">
+                <i class="fa-solid fa-chart-column"></i>
+                Results
+            </a>
+
+            <a href="admin-audit.html">
+                <i class="fa-solid fa-file-shield"></i>
+                Audit Logs
+            </a>
+
+            <a href="admin-settings.html">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button class="logout-btn"
+                    id="logoutBtn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button class="menu-btn"
+                        id="menuBtn">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div>
+
+                    <h2>Voter Management</h2>
+
+                    <p>
+                        Review registrations and verify voter identities
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button class="primary-btn"
+                    id="addVoterBtn">
+
+                <i class="fa-solid fa-user-plus"></i>
+                Add Voter
+
+            </button>
+
+        </header>
+
+
+        <!-- STATS -->
+
+        <section class="stats-grid">
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div>
+                    <span>Registered Voters</span>
+                    <strong id="totalVoters">12,480</strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+
+                <div>
+                    <span>Verified</span>
+                    <strong id="verifiedVoters">12,401</strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+                    <span>Pending</span>
+                    <strong id="pendingVoters">47</strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon red">
+                    <i class="fa-solid fa-user-xmark"></i>
+                </div>
+
+                <div>
+                    <span>Rejected</span>
+                    <strong id="rejectedVoters">32</strong>
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- VOTER PANEL -->
+
+        <section class="voter-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>Registered Voters</h2>
+
+                    <p>
+                        Manage voter accounts and identity verification
+                    </p>
+
+                </div>
+
+                <div class="panel-tools">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="voterSearch"
+                            placeholder="Search voter..."
+                        >
+
+                    </div>
+
+                    <select id="voterFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="verified">
+                            Verified
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="rejected">
+                            Rejected
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table class="voter-table">
+
+                    <thead>
+
+                    <tr>
+                        <th>Voter</th>
+                        <th>Voter ID</th>
+                        <th>Email</th>
+                        <th>Verification</th>
+                        <th>2FA</th>
+                        <th>Registered</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody id="voterTableBody">
+
+                    <tr class="voter-row"
+                        data-status="verified"
+                        data-id="SV-8421">
+
+                        <td>
+
+                            <div class="voter-info">
+
+                                <div class="voter-avatar">
+                                    AK
+                                </div>
+
+                                <div>
+                                    <strong>Arjun Kumar</strong>
+                                    <span>Student</span>
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>SV-8421</td>
+
+                        <td>
+                            arjun@example.com
+                        </td>
+
+                        <td>
+
+                            <span class="status verified">
+                                <i class="fa-solid fa-circle-check"></i>
+                                Verified
+                            </span>
+
+                        </td>
+
+                        <td>
+                            <span class="twofa enabled">
+                                Enabled
+                            </span>
+                        </td>
+
+                        <td>
+                            Jul 18, 2026
+                        </td>
+
+                        <td>
+
+                            <div class="actions">
+
+                                <button class="view-voter">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+
+                                <button class="edit-voter">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                                <button class="delete-voter">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr class="voter-row"
+                        data-status="pending"
+                        data-id="SV-8422">
+
+                        <td>
+
+                            <div class="voter-info">
+
+                                <div class="voter-avatar purple">
+                                    PS
+                                </div>
+
+                                <div>
+                                    <strong>Priya Sharma</strong>
+                                    <span>Student</span>
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>SV-8422</td>
+
+                        <td>
+                            priya@example.com
+                        </td>
+
+                        <td>
+
+                            <span class="status pending">
+                                <i class="fa-solid fa-clock"></i>
+                                Pending
+                            </span>
+
+                        </td>
+
+                        <td>
+                            <span class="twofa enabled">
+                                Enabled
+                            </span>
+                        </td>
+
+                        <td>
+                            Jul 22, 2026
+                        </td>
+
+                        <td>
+
+                            <div class="actions">
+
+                                <button class="view-voter">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+
+                                <button class="approve-voter">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+
+                                <button class="reject-voter">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr class="voter-row"
+                        data-status="verified"
+                        data-id="SV-8423">
+
+                        <td>
+
+                            <div class="voter-info">
+
+                                <div class="voter-avatar green">
+                                    RM
+                                </div>
+
+                                <div>
+                                    <strong>Rahul Mehta</strong>
+                                    <span>Faculty</span>
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>SV-8423</td>
+
+                        <td>
+                            rahul@example.com
+                        </td>
+
+                        <td>
+
+                            <span class="status verified">
+                                <i class="fa-solid fa-circle-check"></i>
+                                Verified
+                            </span>
+
+                        </td>
+
+                        <td>
+                            <span class="twofa enabled">
+                                Enabled
+                            </span>
+                        </td>
+
+                        <td>
+                            Jul 15, 2026
+                        </td>
+
+                        <td>
+
+                            <div class="actions">
+
+                                <button class="view-voter">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+
+                                <button class="edit-voter">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                                <button class="delete-voter">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="empty-state"
+                 id="emptyState">
+
+                <i class="fa-solid fa-users-slash"></i>
+
+                <h3>No voters found</h3>
+
+                <p>
+                    Try changing your search or filter.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- VOTER DETAILS MODAL -->
+
+<div class="modal"
+     id="voterModal">
+
+    <div class="modal-overlay"
+         id="voterOverlay"></div>
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                id="voterClose">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="profile-avatar"
+             id="profileAvatar">
+            AK
+        </div>
+
+        <h2 id="profileName">
+            Voter
+        </h2>
+
+        <span id="profileId">
+            SV-0000
+        </span>
+
+        <div class="profile-details">
+
+            <div>
+                <span>Email</span>
+                <strong id="profileEmail">—</strong>
+            </div>
+
+            <div>
+                <span>Verification</span>
+                <strong id="profileStatus">—</strong>
+            </div>
+
+            <div>
+                <span>Role</span>
+                <strong id="profileRole">—</strong>
+            </div>
+
+            <div>
+                <span>Two-Factor Authentication</span>
+                <strong id="profile2FA">—</strong>
+            </div>
+
+        </div>
+
+        <div class="identity-box">
+
+            <i class="fa-solid fa-id-card"></i>
+
+            <div>
+                <strong>Identity Document</strong>
+                <p>
+                    Government ID submitted for verification.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast"
+     id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastText">
+        Voter updated.
+    </span>
+
+</div>
+
+
+<div class="mobile-overlay"
+     id="mobileOverlay"></div>
+
+<script src="js/admin-voters.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Elections | SecureVote Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/admin-elections.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-check-to-slot"></i>
+
+            <div>
+                <strong>SecureVote</strong>
+                <span>Administration</span>
+            </div>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <span class="nav-label">OVERVIEW</span>
+
+            <a href="admin-dashboard.html">
+                <i class="fa-solid fa-chart-pie"></i>
+                Dashboard
+            </a>
+
+            <span class="nav-label">ELECTION MANAGEMENT</span>
+
+            <a href="admin-elections.html" class="active">
+                <i class="fa-solid fa-box-ballot"></i>
+                Elections
+            </a>
+
+            <a href="admin-candidates.html">
+                <i class="fa-solid fa-users"></i>
+                Candidates
+            </a>
+
+            <a href="admin-voters.html">
+                <i class="fa-solid fa-user-check"></i>
+                Voters
+            </a>
+
+            <span class="nav-label">MONITORING</span>
+
+            <a href="admin-results.html">
+                <i class="fa-solid fa-chart-column"></i>
+                Results
+            </a>
+
+            <a href="admin-audit.html">
+                <i class="fa-solid fa-file-shield"></i>
+                Audit Logs
+            </a>
+
+            <a href="admin-settings.html">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile-small">
+
+                <div class="admin-avatar">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <span id="adminEmail">
+                        admin@securevote.com
+                    </span>
+                </div>
+
+            </div>
+
+            <button class="logout-btn" id="logoutBtn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button class="menu-btn"
+                        id="menuBtn"
+                        aria-label="Toggle menu">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div>
+
+                    <h2>Election Management</h2>
+
+                    <p>
+                        Create, configure and manage elections
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button class="create-btn"
+                    id="createElectionBtn">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Create Election
+
+            </button>
+
+        </header>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats-grid">
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+                    <i class="fa-solid fa-box-ballot"></i>
+                </div>
+
+                <div>
+                    <span>Total Elections</span>
+                    <strong id="totalElections">8</strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+                    <i class="fa-solid fa-circle-play"></i>
+                </div>
+
+                <div>
+                    <span>Active</span>
+                    <strong id="activeElections">2</strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+                    <span>Upcoming</span>
+                    <strong id="upcomingElections">2</strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon purple">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div>
+                    <span>Completed</span>
+                    <strong id="completedElections">4</strong>
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= ELECTION PANEL ================= -->
+
+        <section class="elections-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>All Elections</h2>
+
+                    <p>
+                        View and manage elections in SecureVote
+                    </p>
+
+                </div>
+
+                <div class="panel-tools">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="electionSearch"
+                            placeholder="Search elections..."
+                        >
+
+                    </div>
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="upcoming">
+                            Upcoming
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                        <option value="draft">
+                            Draft
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TABLE ================= -->
+
+            <div class="table-wrapper">
+
+                <table class="election-table">
+
+                    <thead>
+
+                    <tr>
+                        <th>Election</th>
+                        <th>Status</th>
+                        <th>Schedule</th>
+                        <th>Candidates</th>
+                        <th>Eligible Voters</th>
+                        <th>Turnout</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="electionTableBody">
+
+                    <!-- Election 1 -->
+
+                    <tr class="election-row"
+                        data-status="active">
+
+                        <td>
+
+                            <div class="election-name">
+
+                                <div class="election-icon blue">
+
+                                    <i class="fa-solid fa-box-ballot"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Student Council Election 2026
+                                    </strong>
+
+                                    <span>
+                                        EL-2026-001
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status active">
+
+                                <i class="fa-solid fa-circle"></i>
+
+                                Active
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <strong class="date">
+                                Jul 20 - Jul 25
+                            </strong>
+
+                            <span class="year">
+                                2026
+                            </span>
+
+                        </td>
+
+                        <td>4</td>
+
+                        <td>3,840</td>
+
+                        <td>
+
+                            <div class="turnout">
+
+                                <div>
+
+                                    <span style="width:72%"></span>
+
+                                </div>
+
+                                <strong>72%</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="actions">
+
+                                <button
+                                    class="view-btn"
+                                    title="View election"
+                                >
+
+                                    <i class="fa-solid fa-eye"></i>
+
+                                </button>
+
+                                <button
+                                    class="edit-btn"
+                                    title="Edit election"
+                                >
+
+                                    <i class="fa-solid fa-pen"></i>
+
+                                </button>
+
+                                <button
+                                    class="delete-btn"
+                                    title="Delete election"
+                                >
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- Election 2 -->
+
+                    <tr class="election-row"
+                        data-status="active">
+
+                        <td>
+
+                            <div class="election-name">
+
+                                <div class="election-icon green">
+
+                                    <i class="fa-solid fa-building-columns"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Department Representative Election
+                                    </strong>
+
+                                    <span>
+                                        EL-2026-002
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status active">
+
+                                <i class="fa-solid fa-circle"></i>
+
+                                Active
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <strong class="date">
+                                Jul 21 - Jul 27
+                            </strong>
+
+                            <span class="year">
+                                2026
+                            </span>
+
+                        </td>
+
+                        <td>6</td>
+
+                        <td>2,250</td>
+
+                        <td>
+
+                            <div class="turnout">
+
+                                <div>
+                                    <span style="width:58%"></span>
+                                </div>
+
+                                <strong>58%</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="actions">
+
+                                <button class="view-btn">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+
+                                <button class="edit-btn">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                                <button class="delete-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- Election 3 -->
+
+                    <tr class="election-row"
+                        data-status="upcoming">
+
+                        <td>
+
+                            <div class="election-name">
+
+                                <div class="election-icon orange">
+
+                                    <i class="fa-solid fa-graduation-cap"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        University Senate Election
+                                    </strong>
+
+                                    <span>
+                                        EL-2026-003
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status upcoming">
+
+                                <i class="fa-solid fa-clock"></i>
+
+                                Upcoming
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <strong class="date">
+                                Aug 05 - Aug 10
+                            </strong>
+
+                            <span class="year">
+                                2026
+                            </span>
+
+                        </td>
+
+                        <td>5</td>
+
+                        <td>8,420</td>
+
+                        <td>—</td>
+
+                        <td>
+
+                            <div class="actions">
+
+                                <button class="view-btn">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+
+                                <button class="edit-btn">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                                <button class="delete-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- Election 4 -->
+
+                    <tr class="election-row"
+                        data-status="completed">
+
+                        <td>
+
+                            <div class="election-name">
+
+                                <div class="election-icon purple">
+
+                                    <i class="fa-solid fa-users"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Sports Committee Election
+                                    </strong>
+
+                                    <span>
+                                        EL-2026-004
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status completed">
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                Completed
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <strong class="date">
+                                Jun 10 - Jun 15
+                            </strong>
+
+                            <span class="year">
+                                2026
+                            </span>
+
+                        </td>
+
+                        <td>3</td>
+
+                        <td>4,100</td>
+
+                        <td>
+
+                            <div class="turnout">
+
+                                <div>
+                                    <span style="width:84%"></span>
+                                </div>
+
+                                <strong>84%</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <div class="actions">
+
+                                <button class="view-btn">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+
+                                <button class="edit-btn">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                                <button class="delete-btn">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div class="empty-state"
+                 id="emptyState">
+
+                <i class="fa-solid fa-box-open"></i>
+
+                <h3>No elections found</h3>
+
+                <p>
+                    Try changing your search or filter.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= CREATE / EDIT MODAL ================= -->
+
+<div class="modal" id="electionModal">
+
+    <div class="modal-overlay"
+         id="modalOverlay"></div>
+
+    <div class="modal-card large-modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span>SECUREVOTE ADMIN</span>
+
+                <h2 id="modalTitle">
+                    Create Election
+                </h2>
+
+                <p>
+                    Configure election details and voting schedule.
+                </p>
+
+            </div>
+
+            <button class="modal-close"
+                    id="modalClose">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <form id="electionForm">
+
+            <input type="hidden"
+                   id="editingElectionId">
+
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+
+                    <label for="electionName">
+                        Election Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="electionName"
+                        placeholder="Example: Student Council Election 2026"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label for="electionDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="electionDescription"
+                        rows="4"
+                        placeholder="Describe the purpose of this election..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="startDate">
+                        Start Date *
+                    </label>
+
+                    <input
+                        type="datetime-local"
+                        id="startDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="endDate">
+                        End Date *
+                    </label>
+
+                    <input
+                        type="datetime-local"
+                        id="endDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="voterPool">
+                        Voter Pool
+                    </label>
+
+                    <select id="voterPool">
+
+                        <option value="all">
+                            All Verified Voters
+                        </option>
+
+                        <option value="students">
+                            Students
+                        </option>
+
+                        <option value="faculty">
+                            Faculty
+                        </option>
+
+                        <option value="custom">
+                            Custom Voter Pool
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="resultVisibility">
+                        Result Visibility
+                    </label>
+
+                    <select id="resultVisibility">
+
+                        <option value="after">
+                            After Election Ends
+                        </option>
+
+                        <option value="live">
+                            Live Results
+                        </option>
+
+                        <option value="admin">
+                            Admin Only
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="security-options">
+
+                <h3>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Security Options
+                </h3>
+
+
+                <label class="option-row">
+
+                    <div>
+
+                        <strong>OTP Verification</strong>
+
+                        <span>
+                            Require OTP before vote submission
+                        </span>
+
+                    </div>
+
+                    <input
+                        type="checkbox"
+                        id="otpRequired"
+                        checked
+                    >
+
+                </label>
+
+
+                <label class="option-row">
+
+                    <div>
+
+                        <strong>Duplicate Vote Prevention</strong>
+
+                        <span>
+                            Allow only one vote per voter
+                        </span>
+
+                    </div>
+
+                    <input
+                        type="checkbox"
+                        id="duplicateProtection"
+                        checked
+                        disabled
+                    >
+
+                </label>
+
+
+                <label class="option-row">
+
+                    <div>
+
+                        <strong>Audit Logging</strong>
+
+                        <span>
+                            Record election administration events
+                        </span>
+
+                    </div>
+
+                    <input
+                        type="checkbox"
+                        id="auditLogging"
+                        checked
+                        disabled
+                    >
+
+                </label>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button type="button"
+                        class="cancel-btn"
+                        id="cancelBtn">
+
+                    Cancel
+
+                </button>
+
+                <button type="submit"
+                        class="save-btn">
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Save Election
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= VIEW MODAL ================= -->
+
+<div class="modal" id="viewModal">
+
+    <div class="modal-overlay"
+         id="viewOverlay"></div>
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                id="viewClose">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="view-icon">
+
+            <i class="fa-solid fa-box-ballot"></i>
+
+        </div>
+
+        <span class="view-label">
+            ELECTION DETAILS
+        </span>
+
+        <h2 id="viewElectionName">
+            Election
+        </h2>
+
+        <div class="details-list">
+
+            <div>
+                <span>Election ID</span>
+                <strong id="viewElectionId">—</strong>
+            </div>
+
+            <div>
+                <span>Status</span>
+                <strong id="viewElectionStatus">—</strong>
+            </div>
+
+            <div>
+                <span>Schedule</span>
+                <strong id="viewElectionSchedule">—</strong>
+            </div>
+
+            <div>
+                <span>Candidates</span>
+                <strong id="viewCandidateCount">—</strong>
+            </div>
+
+            <div>
+                <span>Eligible Voters</span>
+                <strong id="viewVoterCount">—</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= DELETE MODAL ================= -->
+
+<div class="modal" id="deleteModal">
+
+    <div class="modal-overlay"
+         id="deleteOverlay"></div>
+
+    <div class="modal-card delete-card">
+
+        <div class="delete-icon">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+        </div>
+
+        <h2>Delete Election?</h2>
+
+        <p>
+            This action will remove the election from this
+            frontend prototype.
+        </p>
+
+        <div class="delete-actions">
+
+            <button id="cancelDelete"
+                    class="cancel-btn">
+
+                Cancel
+
+            </button>
+
+            <button id="confirmDelete"
+                    class="confirm-delete-btn">
+
+                <i class="fa-solid fa-trash"></i>
+
+                Delete
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastText">
+        Election saved successfully.
+    </span>
+
+</div>
+
+
+<div class="mobile-overlay"
+     id="mobileOverlay"></div>
+
+
+<script src="js/admin-elections.js"></script>
+
+</body>
+</html>

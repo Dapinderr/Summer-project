@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Election Details | SecureVote</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/election-details.css"
+    >
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-check-to-slot"></i>
+
+            <span>
+                SecureVote
+            </span>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </a>
+
+            <a
+                href="elections.html"
+                class="active"
+            >
+
+                <i class="fa-solid fa-box-ballot"></i>
+
+                Elections
+
+            </a>
+
+            <a href="results.html">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Results
+
+            </a>
+
+            <a href="history.html">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                Voting History
+
+            </a>
+
+            <a href="profile.html">
+
+                <i class="fa-solid fa-user"></i>
+
+                My Profile
+
+            </a>
+
+        </nav>
+
+
+        <button
+            class="logout-btn"
+            id="logoutBtn"
+            type="button"
+        >
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="top-left">
+
+                <button
+                    id="menuBtn"
+                    class="menu-btn"
+                    type="button"
+                    aria-label="Toggle navigation"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+                <a
+                    href="elections.html"
+                    class="back-btn"
+                >
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Back to Elections
+
+                </a>
+
+            </div>
+
+
+            <a
+                href="profile.html"
+                class="profile"
+            >
+
+                <div class="avatar">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <span id="userName">
+                    Voter
+                </span>
+
+            </a>
+
+        </header>
+
+
+        <!-- ELECTION HEADER -->
+
+        <section class="election-header">
+
+            <div class="election-header-content">
+
+                <div class="election-logo">
+
+                    <i class="fa-solid fa-building-columns"></i>
+
+                </div>
+
+
+                <div>
+
+                    <div class="header-status">
+
+                        <span
+                            class="live-status"
+                            id="electionStatus"
+                        >
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Loading...
+
+                        </span>
+
+
+                        <span class="verified-election">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            Verified Election
+
+                        </span>
+
+                    </div>
+
+
+                    <h1 id="electionTitle">
+                        Loading election...
+                    </h1>
+
+
+                    <p id="electionDescription">
+                        Retrieving election information.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ELECTION INFO -->
+
+        <section class="info-grid">
+
+            <article class="info-card">
+
+                <i class="fa-regular fa-calendar"></i>
+
+                <div>
+
+                    <span>
+                        Voting Period
+                    </span>
+
+                    <strong id="votingPeriod">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="info-card">
+
+                <i class="fa-solid fa-users"></i>
+
+                <div>
+
+                    <span>
+                        Candidates
+                    </span>
+
+                    <strong id="candidateInfoCount">
+                        0 Candidates
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="info-card">
+
+                <i class="fa-solid fa-user-check"></i>
+
+                <div>
+
+                    <span>
+                        Eligibility
+                    </span>
+
+                    <strong>
+                        Verified Voters
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="info-card">
+
+                <i class="fa-regular fa-clock"></i>
+
+                <div>
+
+                    <span>
+                        Time Remaining
+                    </span>
+
+                    <strong id="countdown">
+                        Calculating...
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- VOTE STATUS -->
+
+        <section
+            class="instruction-card"
+            id="voteStatusCard"
+            style="display:none;"
+        >
+
+            <div class="instruction-icon">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+            </div>
+
+            <div>
+
+                <h3 id="voteStatusTitle">
+                    Vote recorded
+                </h3>
+
+                <p id="voteStatusText">
+                    You have already participated in this election.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- INSTRUCTIONS -->
+
+        <section class="instruction-card">
+
+            <div class="instruction-icon">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Before you vote
+                </h3>
+
+                <p>
+                    Review each candidate carefully. You can select only
+                    one candidate and your vote cannot be changed after
+                    final confirmation.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CANDIDATES -->
+
+        <section class="candidate-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Meet the Candidates
+                    </h2>
+
+                    <p>
+                        Review candidate profiles and manifestos before
+                        casting your vote.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="candidate-count"
+                    id="candidateCount"
+                >
+
+                    <i class="fa-solid fa-users"></i>
+
+                    0 Candidates
+
+                </div>
+
+            </div>
+
+
+            <!-- REAL CANDIDATES INSERTED HERE -->
+
+            <div
+                class="candidate-grid"
+                id="candidateGrid"
+            >
+
+                <div class="candidate-loading">
+
+                    <i class="fa-solid fa-circle-notch fa-spin"></i>
+
+                    <p>
+                        Loading registered candidates...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECURITY -->
+
+        <section class="security-note">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <div>
+
+                <strong>
+                    Your ballot is secret
+                </strong>
+
+                <p>
+                    Your voting history confirms participation without
+                    displaying which candidate you selected.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- MANIFESTO MODAL -->
+
+<div
+    class="modal"
+    id="manifestoModal"
+>
+
+    <div
+        class="modal-overlay"
+        id="modalOverlay"
+    ></div>
+
+
+    <div class="modal-content">
+
+        <button
+            class="modal-close"
+            id="modalClose"
+            type="button"
+            aria-label="Close manifesto"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <div class="modal-icon">
+
+            <i class="fa-solid fa-file-shield"></i>
+
+        </div>
+
+
+        <span>
+            Candidate Manifesto
+        </span>
+
+
+        <h2 id="modalCandidate">
+            Candidate
+        </h2>
+
+
+        <p id="modalManifesto">
+            Manifesto unavailable.
+        </p>
+
+
+        <button
+            class="modal-done"
+            id="modalDone"
+            type="button"
+        >
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="js/election-details.js"></script>
+
+</body>
+
+</html>

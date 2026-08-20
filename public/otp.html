@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Verify Account | SecureVote</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <!-- OTP CSS -->
+    <link rel="stylesheet" href="/css/otp.css">
+
+</head>
+
+<body>
+
+    <main class="otp-page">
+
+        <section class="otp-card">
+
+            <!-- LOGO -->
+
+            <a href="/" class="logo">
+                <i class="fa-solid fa-check-to-slot"></i>
+                <span>SecureVote</span>
+            </a>
+
+
+            <!-- ICON -->
+
+            <div class="icon-box">
+
+                <i class="fa-solid fa-envelope-circle-check"></i>
+
+            </div>
+
+
+            <!-- HEADING -->
+
+            <h1>Verify Your Email</h1>
+
+            <p class="description">
+                We sent a 6-digit verification code to
+            </p>
+
+            <p
+                id="userEmail"
+                class="email"
+            >
+                your email address
+            </p>
+
+
+            <!-- OTP FORM -->
+
+            <form
+                id="otpForm"
+                autocomplete="off"
+            >
+
+                <div class="otp-inputs">
+
+                    <input
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        maxlength="1"
+                        class="otp-input"
+                        aria-label="OTP digit 1"
+                        autocomplete="one-time-code"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        maxlength="1"
+                        class="otp-input"
+                        aria-label="OTP digit 2"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        maxlength="1"
+                        class="otp-input"
+                        aria-label="OTP digit 3"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        maxlength="1"
+                        class="otp-input"
+                        aria-label="OTP digit 4"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        maxlength="1"
+                        class="otp-input"
+                        aria-label="OTP digit 5"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        maxlength="1"
+                        class="otp-input"
+                        aria-label="OTP digit 6"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <p
+                    id="otpMessage"
+                    class="message"
+                    role="alert"
+                    aria-live="polite"
+                ></p>
+
+
+                <!-- VERIFY BUTTON -->
+
+                <button
+                    type="submit"
+                    id="verifyBtn"
+                    class="verify-btn"
+                >
+
+                    <span>
+                        Verify Account
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <!-- RESEND OTP -->
+
+            <div class="resend-area">
+
+                <p>
+                    Didn't receive the code?
+                </p>
+
+                <button
+                    type="button"
+                    id="resendBtn"
+                    class="resend-btn"
+                >
+                    Resend OTP
+                </button>
+
+                <p
+                    id="timer"
+                    class="timer"
+                ></p>
+
+            </div>
+
+
+            <!-- SECURITY -->
+
+            <div class="security-note">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>
+                    Verification codes expire after
+                    10 minutes. Never share your OTP
+                    with anyone.
+                </span>
+
+            </div>
+
+
+            <!-- BACK -->
+
+            <a
+                href="/login.html"
+                class="back-login"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Login
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- OTP JAVASCRIPT -->
+
+    <script src="/js/otp.js"></script>
+
+</body>
+
+</html>

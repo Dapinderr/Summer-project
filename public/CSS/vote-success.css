@@ -1,0 +1,622 @@
+/* ==========================================================
+   SecureVote
+   File: css/vote-success.css
+   ========================================================== */
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #0f172a;
+    --background: #f1f5f9;
+    --white: #ffffff;
+    --text: #334155;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --success: #10b981;
+    --success-dark: #047857;
+    --shadow: 0 15px 45px rgba(15, 23, 42, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #dbeafe 0, transparent 35%),
+        var(--background);
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+/* ================= TOPBAR ================= */
+
+.topbar {
+    height: 75px;
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--secondary);
+
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.15);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: white;
+
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.logo i {
+    color: #38bdf8;
+    font-size: 1.7rem;
+}
+
+.secure-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 13px;
+
+    border-radius: 30px;
+
+    background: rgba(16, 185, 129, 0.14);
+    color: #6ee7b7;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+/* ================= CONTAINER ================= */
+
+.success-container {
+    width: min(760px, 92%);
+    margin: 0 auto;
+    padding: 50px 0 30px;
+}
+
+/* ================= SUCCESS CARD ================= */
+
+.success-card {
+    padding: 45px;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    background: white;
+
+    box-shadow: var(--shadow);
+}
+
+/* ================= SUCCESS ANIMATION ================= */
+
+.success-animation {
+    margin-bottom: 20px;
+}
+
+.success-circle {
+    position: relative;
+
+    width: 95px;
+    height: 95px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--success);
+    color: white;
+
+    font-size: 2.4rem;
+
+    box-shadow:
+        0 0 0 10px rgba(16, 185, 129, 0.1),
+        0 0 0 20px rgba(16, 185, 129, 0.05);
+
+    animation: successEntry 0.6s ease;
+}
+
+@keyframes successEntry {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-circle i {
+    animation: checkEntry 0.7s 0.2s both;
+}
+
+@keyframes checkEntry {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ================= SUCCESS TEXT ================= */
+
+.success-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    margin: 12px 0;
+
+    padding: 7px 12px;
+
+    border-radius: 30px;
+
+    background: #d1fae5;
+    color: var(--success-dark);
+
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.success-card > h1 {
+    margin-bottom: 10px;
+
+    color: var(--secondary);
+
+    font-size: 2rem;
+}
+
+.success-description {
+    max-width: 570px;
+
+    margin: 0 auto 30px;
+
+    color: var(--muted);
+
+    font-size: 0.82rem;
+    line-height: 1.8;
+}
+
+.success-description strong {
+    color: var(--secondary);
+}
+
+/* ================= RECEIPT ================= */
+
+.receipt-card {
+    margin: 25px 0;
+
+    padding: 25px;
+
+    text-align: left;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    background: #f8fafc;
+}
+
+.receipt-header {
+    padding-bottom: 18px;
+    margin-bottom: 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px dashed #cbd5e1;
+}
+
+.receipt-header span {
+    color: var(--primary);
+
+    font-size: 0.67rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.receipt-header h2 {
+    margin-top: 3px;
+
+    color: var(--secondary);
+
+    font-size: 1.05rem;
+}
+
+.receipt-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #dbeafe;
+    color: var(--primary);
+
+    font-size: 1.3rem;
+}
+
+.receipt-row {
+    padding: 14px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.receipt-row:last-child {
+    border-bottom: 0;
+}
+
+.receipt-row > span {
+    color: var(--muted);
+
+    font-size: 0.72rem;
+}
+
+.receipt-row strong {
+    color: var(--secondary);
+
+    font-size: 0.76rem;
+    text-align: right;
+}
+
+.receipt-row .recorded {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: var(--success-dark);
+}
+
+.receipt-code {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.receipt-code strong {
+    padding: 6px 9px;
+
+    border-radius: 7px;
+
+    background: #e2e8f0;
+
+    font-family: monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.receipt-code button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: white;
+    color: var(--primary);
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.receipt-code button:hover {
+    border-color: var(--primary);
+
+    background: #eff6ff;
+}
+
+/* ================= PRIVACY ================= */
+
+.privacy-message {
+    padding: 18px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    text-align: left;
+
+    border: 1px solid #bae6fd;
+    border-radius: 13px;
+
+    background: #f0f9ff;
+}
+
+.privacy-message > i {
+    margin-top: 2px;
+
+    color: #0284c7;
+
+    font-size: 1.3rem;
+}
+
+.privacy-message strong {
+    color: #075985;
+
+    font-size: 0.8rem;
+}
+
+.privacy-message p {
+    margin-top: 3px;
+
+    color: #0c4a6e;
+
+    font-size: 0.72rem;
+    line-height: 1.7;
+}
+
+/* ================= ACTIONS ================= */
+
+.success-actions {
+    margin-top: 25px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+.dashboard-btn,
+.elections-btn {
+    padding: 13px 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border-radius: 10px;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.dashboard-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.dashboard-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.elections-btn {
+    border: 1px solid var(--border);
+
+    background: white;
+    color: var(--secondary);
+}
+
+.elections-btn:hover {
+    border-color: #93c5fd;
+
+    background: #eff6ff;
+    color: var(--primary);
+}
+
+/* ================= SECURITY DETAILS ================= */
+
+.security-details {
+    margin-top: 30px;
+    padding-top: 22px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    border-top: 1px solid var(--border);
+}
+
+.security-details div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--muted);
+
+    font-size: 0.65rem;
+}
+
+.security-details i {
+    color: var(--success);
+
+    font-size: 1.1rem;
+}
+
+/* ================= AUDIT NOTE ================= */
+
+.audit-note {
+    margin-top: 18px;
+    padding: 15px 18px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    border-radius: 12px;
+
+    background: #fffbeb;
+
+    color: #92400e;
+
+    font-size: 0.7rem;
+    line-height: 1.6;
+}
+
+.audit-note i {
+    margin-top: 2px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 15px 20px 30px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 0.7rem;
+}
+
+/* ================= TOAST ================= */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 30px;
+
+    z-index: 2000;
+
+    padding: 12px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border-radius: 10px;
+
+    background: var(--secondary);
+    color: white;
+
+    font-size: 0.75rem;
+
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translate(-50%, 20px);
+
+    transition: 0.3s;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translate(-50%, 0);
+}
+
+.toast i {
+    color: #6ee7b7;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 650px) {
+
+    .topbar {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .secure-badge {
+        padding: 7px 9px;
+
+        font-size: 0;
+    }
+
+    .secure-badge i {
+        font-size: 0.9rem;
+    }
+
+    .success-container {
+        width: 90%;
+        padding-top: 30px;
+    }
+
+    .success-card {
+        padding: 30px 20px;
+    }
+
+    .success-card > h1 {
+        font-size: 1.5rem;
+    }
+
+    .receipt-row {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 7px;
+    }
+
+    .receipt-row strong {
+        text-align: left;
+    }
+
+    .success-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .security-details {
+        grid-template-columns: 1fr;
+    }
+
+    .security-details div {
+        padding: 8px;
+
+        flex-direction: row;
+        justify-content: center;
+    }
+}

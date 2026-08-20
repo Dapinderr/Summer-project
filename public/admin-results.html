@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Election Results | SecureVote Admin</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="css/admin-results.css">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar"
+           id="sidebar">
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-check-to-slot"></i>
+
+            <div>
+                <strong>SecureVote</strong>
+                <span>Administration</span>
+            </div>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <span class="nav-label">OVERVIEW</span>
+
+            <a href="admin-dashboard.html">
+
+                <i class="fa-solid fa-chart-pie"></i>
+                Dashboard
+
+            </a>
+
+            <span class="nav-label">
+                ELECTION MANAGEMENT
+            </span>
+
+            <a href="admin-elections.html">
+
+                <i class="fa-solid fa-box-ballot"></i>
+                Elections
+
+            </a>
+
+            <a href="admin-candidates.html">
+
+                <i class="fa-solid fa-users"></i>
+                Candidates
+
+            </a>
+
+            <a href="admin-voters.html">
+
+                <i class="fa-solid fa-user-check"></i>
+                Voters
+
+            </a>
+
+            <span class="nav-label">
+                MONITORING
+            </span>
+
+            <a href="admin-results.html"
+               class="active">
+
+                <i class="fa-solid fa-chart-column"></i>
+                Results
+
+            </a>
+
+            <a href="admin-audit.html">
+
+                <i class="fa-solid fa-file-shield"></i>
+                Audit Logs
+
+            </a>
+
+            <a href="admin-settings.html">
+
+                <i class="fa-solid fa-gear"></i>
+                Settings
+
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button class="logout-btn"
+                    id="logoutBtn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button class="menu-btn"
+                        id="menuBtn">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div>
+
+                    <h2>Election Results</h2>
+
+                    <p>
+                        Monitor vote counts and election participation
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="live-indicator">
+
+                <span></span>
+
+                Live Results
+
+            </div>
+
+        </header>
+
+
+        <!-- ELECTION SELECTOR -->
+
+        <section class="result-header">
+
+            <div>
+
+                <span class="section-label">
+                    SELECT ELECTION
+                </span>
+
+                <h1>
+                    Student Council Election 2026
+                </h1>
+
+                <p>
+                    Live vote counting dashboard
+                </p>
+
+            </div>
+
+            <select id="electionSelector">
+
+                <option>
+                    Student Council Election 2026
+                </option>
+
+                <option>
+                    Department Representative Election
+                </option>
+
+                <option>
+                    Sports Committee Election
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <!-- STATS -->
+
+        <section class="stats-grid">
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div>
+                    <span>Eligible Voters</span>
+                    <strong>3,840</strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+                    <i class="fa-solid fa-check-to-slot"></i>
+                </div>
+
+                <div>
+                    <span>Votes Cast</span>
+                    <strong id="votesCast">2,765</strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon purple">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+
+                <div>
+                    <span>Turnout</span>
+                    <strong>72%</strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+                    <span>Voting Ends</span>
+                    <strong class="small-value">
+                        Jul 25
+                    </strong>
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- RESULTS GRID -->
+
+        <section class="results-grid">
+
+            <!-- CANDIDATE RESULTS -->
+
+            <div class="result-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <h2>
+                            Candidate Results
+                        </h2>
+
+                        <p>
+                            Current vote distribution
+                        </p>
+
+                    </div>
+
+                    <span class="updated">
+                        Updated just now
+                    </span>
+
+                </div>
+
+
+                <div class="candidate-result">
+
+                    <div class="result-position">
+                        1
+                    </div>
+
+                    <div class="result-avatar">
+                        AS
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-name">
+
+                            <strong>
+                                Aarav Sharma
+                            </strong>
+
+                            <span>
+                                1,124 votes
+                            </span>
+
+                        </div>
+
+                        <div class="result-progress">
+
+                            <div>
+                                <span style="width:40.7%"></span>
+                            </div>
+
+                            <strong>
+                                40.7%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="candidate-result">
+
+                    <div class="result-position">
+                        2
+                    </div>
+
+                    <div class="result-avatar purple">
+                        PK
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-name">
+
+                            <strong>
+                                Priya Kapoor
+                            </strong>
+
+                            <span>
+                                986 votes
+                            </span>
+
+                        </div>
+
+                        <div class="result-progress">
+
+                            <div>
+                                <span style="width:35.7%"></span>
+                            </div>
+
+                            <strong>
+                                35.7%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="candidate-result">
+
+                    <div class="result-position">
+                        3
+                    </div>
+
+                    <div class="result-avatar orange">
+                        RS
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-name">
+
+                            <strong>
+                                Rohan Singh
+                            </strong>
+
+                            <span>
+                                655 votes
+                            </span>
+
+                        </div>
+
+                        <div class="result-progress">
+
+                            <div>
+                                <span style="width:23.6%"></span>
+                            </div>
+
+                            <strong>
+                                23.6%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ELECTION INFO -->
+
+            <div class="result-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h2>Election Status</h2>
+                        <p>Current voting information</p>
+                    </div>
+
+                </div>
+
+
+                <div class="status-banner">
+
+                    <span class="pulse-dot"></span>
+
+                    <div>
+
+                        <strong>
+                            Voting in Progress
+                        </strong>
+
+                        <p>
+                            Ballots are currently being accepted.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-list">
+
+                    <div>
+
+                        <span>Election ID</span>
+
+                        <strong>
+                            EL-2026-001
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>Start</span>
+
+                        <strong>
+                            Jul 20, 2026
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>End</span>
+
+                        <strong>
+                            Jul 25, 2026
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>Candidates</span>
+
+                        <strong>
+                            3
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>Duplicate Protection</span>
+
+                        <strong class="secure-text">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Active
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRIVACY -->
+
+        <section class="privacy-notice">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <div>
+
+                <strong>
+                    Ballot Privacy Protected
+                </strong>
+
+                <p>
+                    Results contain aggregate vote totals only.
+                    Individual voter ballot choices must never be
+                    displayed to administrators or observers.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div class="mobile-overlay"
+     id="mobileOverlay"></div>
+
+<script src="js/admin-results.js"></script>
+
+</body>
+
+</html>

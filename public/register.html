@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | SecureVote</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <!-- Register CSS -->
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+
+<div class="register-page">
+
+    <!-- ================= LEFT SIDE ================= -->
+
+    <section class="register-left">
+
+        <a href="/" class="logo">
+            <i class="fa-solid fa-check-to-slot"></i>
+            <span>SecureVote</span>
+        </a>
+
+        <div class="left-content">
+
+            <span class="badge">
+                <i class="fa-solid fa-shield-halved"></i>
+                Secure Voter Registration
+            </span>
+
+            <h1>
+                Your vote.<br>
+                Your voice.<br>
+                Your democracy.
+            </h1>
+
+            <p>
+                Create your SecureVote account to participate
+                in authorized online elections securely.
+            </p>
+
+            <div class="security-features">
+
+                <div>
+                    <i class="fa-solid fa-lock"></i>
+
+                    <span>
+                        Secure Account
+                        <small>Protected authentication</small>
+                    </span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-user-check"></i>
+
+                    <span>
+                        Voter Verification
+                        <small>Identity verification support</small>
+                    </span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-fingerprint"></i>
+
+                    <span>
+                        One Voter, One Vote
+                        <small>Duplicate vote protection</small>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="left-footer">
+            © 2026 SecureVote
+        </p>
+
+    </section>
+
+
+    <!-- ================= RIGHT SIDE ================= -->
+
+    <section class="register-right">
+
+        <div class="register-card">
+
+            <div class="mobile-logo">
+                <i class="fa-solid fa-check-to-slot"></i>
+                SecureVote
+            </div>
+
+            <div class="form-header">
+
+                <span>CREATE ACCOUNT</span>
+
+                <h2>Register as a Voter</h2>
+
+                <p>
+                    Enter your details and verify your identity
+                    to create your SecureVote account.
+                </p>
+
+            </div>
+
+
+            <form
+                id="registerForm"
+                enctype="multipart/form-data"
+            >
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="fullname">
+                        Full Name
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="fullname"
+                            name="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            minlength="3"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Mobile Number
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Enter 10-digit mobile number"
+                            maxlength="10"
+                            inputmode="numeric"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- DATE OF BIRTH -->
+
+                <div class="form-group">
+
+                    <label for="dob">
+                        Date of Birth
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-calendar-days"></i>
+
+                        <input
+                            type="date"
+                            id="dob"
+                            name="dob"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- VOTER ID -->
+
+                <div class="form-group">
+
+                    <label for="voterid">
+                        Voter ID
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-id-card"></i>
+
+                        <input
+                            type="text"
+                            id="voterid"
+                            name="voterId"
+                            placeholder="Enter your Voter ID"
+                            minlength="8"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- GOVERNMENT ID -->
+
+                <div class="form-group">
+
+                    <label for="govid">
+                        Government ID Document
+                    </label>
+
+                    <div class="input-box file-input-box">
+
+                        <i class="fa-solid fa-file-shield"></i>
+
+                        <input
+                            type="file"
+                            id="govid"
+                            name="governmentId"
+                            accept=".jpg,.jpeg,.png,.pdf"
+                            required
+                        >
+
+                    </div>
+
+                    <small class="input-help">
+                        Upload JPG, PNG or PDF.
+                    </small>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Minimum 8 characters"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle toggle-password"
+                            data-target="password"
+                            aria-label="Show or hide password"
+                        >
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Enter password again"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle toggle-password"
+                            data-target="confirmPassword"
+                            aria-label="Show or hide password"
+                        >
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TERMS -->
+
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <span>
+                        I agree to the SecureVote terms and
+                        election participation rules.
+                    </span>
+
+                </label>
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    id="registerMessage"
+                    class="form-message"
+                    role="alert"
+                ></div>
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button
+                    type="submit"
+                    class="register-btn"
+                    id="registerBtn"
+                >
+
+                    <span>Create Account</span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <div class="divider">
+                <span>Already registered?</span>
+            </div>
+
+
+            <a
+                href="login.html"
+                class="login-link"
+            >
+                Login to SecureVote
+            </a>
+
+
+            <div class="secure-note">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <p>
+                    Your account credentials are protected using
+                    secure password hashing on the server.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- Registration JavaScript -->
+<script src="/js/register.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login | SecureVote</title>
+
+    <meta
+        name="description"
+        content="Secure voter login for SecureVote."
+    >
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <!-- Login CSS -->
+    <link
+        rel="stylesheet"
+        href="/css/login.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =========================
+         ANIMATED BACKGROUND
+    ========================== -->
+
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a
+                href="/"
+                class="logo"
+            >
+
+                <i class="fa-solid fa-check-to-slot"></i>
+
+                <span>
+                    SecureVote
+                </span>
+
+            </a>
+
+
+            <ul>
+
+                <li>
+                    <a href="/">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/contact.html">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/faq.html">
+                        FAQ
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         LOGIN
+    ========================== -->
+
+    <main class="login-section">
+
+        <div class="login-card">
+
+            <!-- HEADER -->
+
+            <div class="card-header">
+
+                <i
+                    class="fa-solid fa-user-shield login-icon"
+                ></i>
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <p>
+                    Login to your SecureVote account
+                    to participate in authorized elections.
+                </p>
+
+            </div>
+
+
+            <!-- LOGIN FORM -->
+
+            <form
+                id="loginForm"
+                autocomplete="on"
+            >
+
+                <!-- EMAIL -->
+
+                <div class="input-box">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-field">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-box">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-field">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="toggle-btn"
+                            aria-label="Show password"
+                        >
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OPTIONS -->
+
+                <div class="options">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        Remember Me
+
+                    </label>
+
+
+                    <a href="/forgot-password.html">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    id="loginMessage"
+                    class="form-message"
+                    role="alert"
+                    aria-live="polite"
+                ></div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-btn"
+                    id="loginBtn"
+                >
+
+                    <span>
+                        Login
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider">
+
+                <span>
+                    New to SecureVote?
+                </span>
+
+            </div>
+
+
+            <!-- REGISTER -->
+
+            <div class="register-link">
+
+                Don't have an account?
+
+                <a href="/register.html">
+                    Register Now
+                </a>
+
+            </div>
+
+
+            <!-- SECURITY NOTE -->
+
+            <div class="security-note">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>
+                    Secure authentication protects
+                    access to your voter account.
+                </span>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 SecureVote |
+            Secure • Transparent • Trusted
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="/js/login.js"></script>
+
+</body>
+
+</html>

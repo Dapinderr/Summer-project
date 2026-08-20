@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Candidates | SecureVote Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/admin-candidates.css"
+    >
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-check-to-slot"></i>
+
+            <div>
+                <strong>SecureVote</strong>
+                <span>Administration</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <span class="nav-label">
+                OVERVIEW
+            </span>
+
+            <a href="admin-dashboard.html">
+                <i class="fa-solid fa-chart-pie"></i>
+                Dashboard
+            </a>
+
+
+            <span class="nav-label">
+                ELECTION MANAGEMENT
+            </span>
+
+            <a href="admin-elections.html">
+                <i class="fa-solid fa-box-ballot"></i>
+                Elections
+            </a>
+
+            <a
+                href="admin-candidates.html"
+                class="active"
+            >
+                <i class="fa-solid fa-users"></i>
+                Candidates
+            </a>
+
+            <a href="admin-voters.html">
+                <i class="fa-solid fa-user-check"></i>
+                Voters
+            </a>
+
+
+            <span class="nav-label">
+                MONITORING
+            </span>
+
+            <a href="admin-results.html">
+                <i class="fa-solid fa-chart-column"></i>
+                Results
+            </a>
+
+            <a href="admin-audit.html">
+                <i class="fa-solid fa-file-shield"></i>
+                Audit Logs
+            </a>
+
+            <a href="admin-settings.html">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile-small">
+
+                <div class="admin-avatar">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+
+                    <span id="sidebarAdminEmail">
+                        Administrator
+                    </span>
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="logout-btn"
+                id="logoutBtn"
+            >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="menu-btn"
+                    id="menuBtn"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+
+                <div>
+                    <h2>Candidate Management</h2>
+
+                    <p>
+                        Register and manage election candidates
+                    </p>
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="primary-btn"
+                id="addCandidateBtn"
+            >
+                <i class="fa-solid fa-user-plus"></i>
+                Add Candidate
+            </button>
+
+        </header>
+
+
+        <!-- =================================================
+             STATS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div>
+                    <span>Total Candidates</span>
+
+                    <strong id="totalCandidates">
+                        0
+                    </strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div>
+                    <span>Approved</span>
+
+                    <strong id="approvedCandidates">
+                        0
+                    </strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+                    <span>Pending</span>
+
+                    <strong id="pendingCandidates">
+                        0
+                    </strong>
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon purple">
+                    <i class="fa-solid fa-box-ballot"></i>
+                </div>
+
+                <div>
+                    <span>Active Elections</span>
+
+                    <strong id="activeElections">
+                        0
+                    </strong>
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================================
+             CANDIDATE DIRECTORY
+        ================================================== -->
+
+        <section class="candidate-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>Candidate Directory</h2>
+
+                    <p>
+                        Candidate profiles registered in SecureVote
+                    </p>
+                </div>
+
+
+                <div class="panel-tools">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="candidateSearch"
+                            placeholder="Search candidates..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <select id="candidateFilter">
+
+                        <option value="all">
+                            All Candidates
+                        </option>
+
+                        <option value="approved">
+                            Approved
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!--
+                Candidate cards are generated dynamically
+                from MongoDB by admin-candidates.js
+            -->
+
+            <div
+                class="candidate-grid"
+                id="candidateGrid"
+            ></div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <i class="fa-solid fa-user-slash"></i>
+
+                <h3>No candidates found</h3>
+
+                <p>
+                    Add a candidate or try another search/filter.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     ADD / EDIT CANDIDATE MODAL
+========================================================== -->
+
+<div
+    class="modal"
+    id="candidateModal"
+>
+
+    <div
+        class="modal-overlay"
+        id="modalOverlay"
+    ></div>
+
+
+    <div class="modal-card">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span>
+                    SECUREVOTE ADMIN
+                </span>
+
+                <h2 id="modalTitle">
+                    Add Candidate
+                </h2>
+
+                <p>
+                    Create a candidate profile for an election.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="modalClose"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <form id="candidateForm">
+
+            <!-- MongoDB candidate _id while editing -->
+
+            <input
+                type="hidden"
+                id="editingCandidateId"
+            >
+
+
+            <div class="form-grid">
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="candidateName">
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="candidateName"
+                        placeholder="Candidate name"
+                        maxlength="100"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- POSITION -->
+
+                <div class="form-group">
+
+                    <label for="candidatePosition">
+                        Position *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="candidatePosition"
+                        placeholder="President"
+                        maxlength="100"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ELECTION -->
+
+                <div class="form-group full-width">
+
+                    <label for="candidateElection">
+                        Election *
+                    </label>
+
+                    <select
+                        id="candidateElection"
+                        required
+                    >
+
+                        <option value="">
+                            Loading elections...
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MANIFESTO -->
+
+                <div class="form-group full-width">
+
+                    <label for="candidateManifesto">
+                        Manifesto
+                    </label>
+
+                    <textarea
+                        id="candidateManifesto"
+                        rows="5"
+                        maxlength="500"
+                        placeholder="Candidate manifesto..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="form-group">
+
+                    <label for="candidateStatus">
+                        Verification Status
+                    </label>
+
+                    <select id="candidateStatus">
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="approved">
+                            Approved
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- PHOTO -->
+
+                <div class="form-group">
+
+                    <label for="candidatePhoto">
+                        Candidate Photo
+                    </label>
+
+                    <input
+                        type="file"
+                        id="candidatePhoto"
+                        accept="image/png,image/jpeg,image/webp"
+                        disabled
+                    >
+
+                    <small>
+                        Photo upload will be enabled after candidate
+                        image storage is connected.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="security-note">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <p>
+                    Candidate identity and eligibility should be
+                    verified by an authorized administrator before
+                    approval.
+                </p>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelBtn"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                    id="saveCandidateBtn"
+                >
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    <span id="saveCandidateText">
+                        Save Candidate
+                    </span>
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     VIEW CANDIDATE MODAL
+========================================================== -->
+
+<div
+    class="modal"
+    id="viewModal"
+>
+
+    <div
+        class="modal-overlay"
+        id="viewOverlay"
+    ></div>
+
+
+    <div class="modal-card view-card">
+
+        <button
+            type="button"
+            class="modal-close view-close"
+            id="viewClose"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <div
+            class="view-avatar"
+            id="viewAvatar"
+        >
+            —
+        </div>
+
+
+        <span class="view-label">
+            CANDIDATE PROFILE
+        </span>
+
+
+        <h2 id="viewName">
+            Candidate
+        </h2>
+
+
+        <p id="viewPosition">
+            Position
+        </p>
+
+
+        <div class="profile-details">
+
+            <div>
+
+                <span>
+                    Candidate ID
+                </span>
+
+                <strong id="viewId">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Election
+                </span>
+
+                <strong id="viewElection">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Status
+                </span>
+
+                <strong id="viewStatus">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="manifesto-box">
+
+            <span>
+                Manifesto
+            </span>
+
+            <p id="viewManifesto">
+                —
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     DELETE CONFIRMATION
+========================================================== -->
+
+<div
+    class="modal"
+    id="deleteModal"
+>
+
+    <div
+        class="modal-overlay"
+        id="deleteOverlay"
+    ></div>
+
+
+    <div class="modal-card delete-card">
+
+        <div class="delete-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+
+
+        <h2>
+            Delete Candidate?
+        </h2>
+
+
+        <p>
+            This candidate will be permanently removed from
+            SecureVote. This action cannot be undone.
+        </p>
+
+
+        <div class="delete-actions">
+
+            <button
+                type="button"
+                class="cancel-btn"
+                id="cancelDelete"
+            >
+                Cancel
+            </button>
+
+
+            <button
+                type="button"
+                class="delete-confirm"
+                id="confirmDelete"
+            >
+                <i class="fa-solid fa-trash"></i>
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+========================================================== -->
+
+<div
+    class="toast"
+    id="toast"
+>
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastText">
+        Candidate saved.
+    </span>
+
+</div>
+
+
+<!-- MOBILE OVERLAY -->
+
+<div
+    class="mobile-overlay"
+    id="mobileOverlay"
+></div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="js/admin-candidates.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vote Recorded | SecureVote</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/vote-success.css">
+</head>
+
+<body>
+
+<div class="success-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="topbar">
+
+        <a href="dashboard.html" class="logo">
+
+            <i class="fa-solid fa-check-to-slot"></i>
+
+            <span>SecureVote</span>
+
+        </a>
+
+        <div class="secure-badge">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            SecureVote Verified
+
+        </div>
+
+    </header>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="success-container">
+
+        <section class="success-card">
+
+            <!-- SUCCESS ICON -->
+
+            <div class="success-animation">
+
+                <div class="success-circle">
+
+                    <i class="fa-solid fa-check"></i>
+
+                </div>
+
+            </div>
+
+            <span class="success-label">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Vote Successfully Recorded
+
+            </span>
+
+            <h1>Your Vote Has Been Cast!</h1>
+
+            <p class="success-description">
+
+                Your ballot has been securely recorded for the
+                <strong id="electionName">
+                    Student Council Election 2026
+                </strong>.
+
+            </p>
+
+            <!-- ================= RECEIPT ================= -->
+
+            <div class="receipt-card">
+
+                <div class="receipt-header">
+
+                    <div>
+
+                        <span>Secure Voting Receipt</span>
+
+                        <h2>Participation Confirmation</h2>
+
+                    </div>
+
+                    <div class="receipt-icon">
+
+                        <i class="fa-solid fa-file-shield"></i>
+
+                    </div>
+
+                </div>
+
+                <div class="receipt-row">
+
+                    <span>Election</span>
+
+                    <strong id="receiptElection">
+                        Student Council Election 2026
+                    </strong>
+
+                </div>
+
+                <div class="receipt-row">
+
+                    <span>Vote Status</span>
+
+                    <strong class="recorded">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Recorded
+
+                    </strong>
+
+                </div>
+
+                <div class="receipt-row">
+
+                    <span>Date & Time</span>
+
+                    <strong id="voteTime">
+                        -
+                    </strong>
+
+                </div>
+
+                <div class="receipt-row">
+
+                    <span>Receipt ID</span>
+
+                    <div class="receipt-code">
+
+                        <strong id="receiptId">
+                            SV-XXXXXXXX
+                        </strong>
+
+                        <button id="copyReceiptBtn"
+                                title="Copy receipt">
+
+                            <i class="fa-regular fa-copy"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= PRIVACY ================= -->
+
+            <div class="privacy-message">
+
+                <i class="fa-solid fa-user-secret"></i>
+
+                <div>
+
+                    <strong>Your ballot remains secret</strong>
+
+                    <p>
+                        This receipt confirms that your vote was
+                        recorded. It does not reveal which candidate
+                        you selected.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- ================= ACTIONS ================= -->
+
+            <div class="success-actions">
+
+                <a href="dashboard.html"
+                   class="dashboard-btn">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Return to Dashboard
+
+                </a>
+
+                <a href="elections.html"
+                   class="elections-btn">
+
+                    <i class="fa-solid fa-box-ballot"></i>
+
+                    View Elections
+
+                </a>
+
+            </div>
+
+            <!-- ================= SECURITY DETAILS ================= -->
+
+            <div class="security-details">
+
+                <div>
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <span>
+                        Encrypted Ballot
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <i class="fa-solid fa-fingerprint"></i>
+
+                    <span>
+                        Identity Verified
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <i class="fa-solid fa-ban"></i>
+
+                    <span>
+                        Duplicate Protected
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= NOTE ================= -->
+
+        <section class="audit-note">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            <p>
+                Keep your receipt ID for participation verification.
+                It should not contain information that identifies
+                your selected candidate.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            © 2026 SecureVote • Secure • Transparent • Trusted
+        </p>
+
+    </footer>
+
+</div>
+
+<!-- COPY NOTIFICATION -->
+
+<div class="toast" id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    Receipt ID copied
+
+</div>
+
+<script src="js/vote-success.js"></script>
+
+</body>
+
+</html>

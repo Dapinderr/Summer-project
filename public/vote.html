@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cast Your Vote | SecureVote</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/vote.css">
+</head>
+
+<body>
+
+<div class="vote-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="topbar">
+
+        <a href="election-details.html?id=1" class="logo">
+            <i class="fa-solid fa-check-to-slot"></i>
+            <span>SecureVote</span>
+        </a>
+
+        <div class="security-status">
+            <i class="fa-solid fa-lock"></i>
+            Secure Voting Session
+        </div>
+
+    </header>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="vote-container">
+
+        <!-- PROGRESS -->
+
+        <section class="vote-progress">
+
+            <div class="step completed">
+
+                <span>
+                    <i class="fa-solid fa-check"></i>
+                </span>
+
+                <p>Identity Verified</p>
+
+            </div>
+
+            <div class="line completed"></div>
+
+            <div class="step active">
+
+                <span>2</span>
+
+                <p>Review Vote</p>
+
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step">
+
+                <span>3</span>
+
+                <p>Confirmation</p>
+
+            </div>
+
+        </section>
+
+        <!-- HEADER -->
+
+        <section class="page-heading">
+
+            <span class="election-label">
+                <i class="fa-solid fa-box-ballot"></i>
+                Student Council Election 2026
+            </span>
+
+            <h1>Review Your Selection</h1>
+
+            <p>
+                Carefully review your candidate before submitting
+                your final vote.
+            </p>
+
+        </section>
+
+        <!-- ================= VOTE CARD ================= -->
+
+        <section class="vote-card">
+
+            <div class="candidate-preview">
+
+                <div class="candidate-photo">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <div class="candidate-information">
+
+                    <span class="selected-label">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Selected Candidate
+
+                    </span>
+
+                    <h2 id="candidateName">
+                        Aarav Sharma
+                    </h2>
+
+                    <p id="candidateParty">
+                        Student Progress Alliance
+                    </p>
+
+                    <div class="candidate-tags">
+
+                        <span>Student Welfare</span>
+                        <span>Academics</span>
+                        <span>Transparency</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="selection-actions">
+
+                <a href="election-details.html?id=1"
+                   class="change-btn">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Change Candidate
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- ================= SECURITY WARNING ================= -->
+
+        <section class="important-notice">
+
+            <div class="notice-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Important</h3>
+
+                <p>
+                    After your vote is submitted and confirmed, it
+                    cannot be changed or submitted again for this
+                    election.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ================= PRIVACY ================= -->
+
+        <section class="privacy-card">
+
+            <div class="privacy-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Your vote remains private</h3>
+
+                <p>
+                    SecureVote records that you participated in the
+                    election but does not display your candidate
+                    selection in your voting history.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ================= CONFIRM ================= -->
+
+        <section class="confirmation-card">
+
+            <label class="confirm-checkbox">
+
+                <input type="checkbox" id="confirmVote">
+
+                <span class="custom-checkbox">
+
+                    <i class="fa-solid fa-check"></i>
+
+                </span>
+
+                <span>
+                    I confirm that I have reviewed my selection and
+                    understand that my vote cannot be changed after
+                    submission.
+                </span>
+
+            </label>
+
+            <button id="submitVoteBtn"
+                    class="submit-vote-btn"
+                    disabled>
+
+                <i class="fa-solid fa-lock"></i>
+
+                Submit Secure Vote
+
+            </button>
+
+        </section>
+
+        <div class="encrypted-message">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Your vote will be encrypted before transmission.
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- ================= CONFIRMATION MODAL ================= -->
+
+<div class="modal" id="confirmationModal">
+
+    <div class="modal-overlay"
+         id="confirmationOverlay"></div>
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                id="confirmationClose"
+                aria-label="Close">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="modal-icon">
+
+            <i class="fa-solid fa-box-ballot"></i>
+
+        </div>
+
+        <h2>Submit Your Vote?</h2>
+
+        <p>
+            You are about to cast your vote for
+            <strong id="confirmCandidateName">
+                Aarav Sharma
+            </strong>.
+        </p>
+
+        <div class="final-warning">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            This action cannot be undone.
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button id="cancelVoteBtn"
+                    class="cancel-btn">
+
+                Cancel
+
+            </button>
+
+            <button id="finalVoteBtn"
+                    class="final-vote-btn">
+
+                <i class="fa-solid fa-check-to-slot"></i>
+
+                Confirm Vote
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= PROCESSING ================= -->
+
+<div class="processing-screen"
+     id="processingScreen">
+
+    <div class="processing-card">
+
+        <div class="loader"></div>
+
+        <h2>Securing Your Vote</h2>
+
+        <p id="processingText">
+            Encrypting ballot...
+        </p>
+
+        <div class="processing-steps">
+
+            <div id="encryptStep">
+
+                <i class="fa-solid fa-circle-notch"></i>
+
+                Encrypting vote
+
+            </div>
+
+            <div id="verifyStep">
+
+                <i class="fa-regular fa-circle"></i>
+
+                Verifying ballot
+
+            </div>
+
+            <div id="recordStep">
+
+                <i class="fa-regular fa-circle"></i>
+
+                Recording vote
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/vote.js"></script>
+
+</body>
+
+</html>
